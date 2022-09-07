@@ -1,3 +1,5 @@
+package lek_0709.shapes_examples.Tegning.src;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -34,16 +36,16 @@ public class Gui extends Application {
 
             Polygon tail = new Polygon(10,50,75,150,10,250);
             pane.getChildren().add(tail);
-            tail.setFill(Color.web("#3d65ba"));
+            tail.setFill(Color.SLATEGRAY);
 
             // Ellipse with centrum (70,230) radius1 50 and radius2 100
             Ellipse body = new Ellipse(200,150,150,75);
             pane.getChildren().add(body);
-            body.setFill(Color.web("#3d65ba"));
+            body.setFill(Color.SLATEGRAY);
 
-            Polygon mouth = new Polygon(275,175,350,125,350,200);
+            Polygon mouth = new Polygon(265,155,350,165,325,200);
             pane.getChildren().add(mouth);
-            mouth.setFill(Color.TRANSPARENT);
+            mouth.setFill(Color.WHITE);
 
 
 
