@@ -1,10 +1,10 @@
-package shapes_examples;
+package ShapesStart;
 
 import javafx.application.Application;
 
 public class App {
 
     public static void main(String[] args) {
-        Application.launch(shapes_examples.Gui.class);
+        Application.launch(ShapesStart.Gui.class);
     }
 }

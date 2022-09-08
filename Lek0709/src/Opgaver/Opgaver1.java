@@ -1,6 +1,6 @@
-package Lek0709;
+package Opgaver;
 
-public class HelloWorld {
+public class Opgaver1 {
     public static void main(String[] args) {
         String e1_1 = "Hej Verden";
         System.out.println(e1_1);

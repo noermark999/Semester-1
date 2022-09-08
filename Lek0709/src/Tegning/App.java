@@ -1,4 +1,4 @@
-package lek_0709.shapes_examples.Tegning.src;
+package Tegning;
 
 import javafx.application.Application;
 
