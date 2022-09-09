@@ -157,7 +157,7 @@ public class Gui extends Application {
         int hour = cal.get(GregorianCalendar.HOUR_OF_DAY);
         String curTime = String.format("%02d:%02d", hour, minute);
 
-        Text clockText = new Text(392, 314, curTime);
+        Text clockText = new Text(390, 314, curTime);
         pane.getChildren().add(clockText);
         clockText.setFill(Color.BLACK);
 
