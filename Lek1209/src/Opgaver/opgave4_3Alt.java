@@ -12,13 +12,13 @@ public class opgave4_3Alt {
 
         System.out.println();
         System.out.println("Resultater:");
-        System.out.println("Sum: " + (a+b));
-        System.out.println("Difference: " + (a-b));
-        System.out.println("Product: " + (a*b));
+        System.out.println("Sum: " + String.format("%,d", (a+b)));
+        System.out.println("Difference: " + String.format("%,d", (a-b)));
+        System.out.println("Product: " + String.format("%,d", (a*b)));
         System.out.println("Average: " + (double)(a+b)/2);
-        System.out.println("Absolute distance: " + Math.abs(a-b));
-        System.out.println("Max: " + Math.max(a, b));
-        System.out.println("Min: " + Math.min(a, b));
+        System.out.println("Absolute distance: " + String.format("%,d", Math.abs(a-b)));
+        System.out.println("Max: " + String.format("%,d", Math.max(a, b)));
+        System.out.println("Min: " + String.format("%,d", Math.min(a, b)));
 
     }
 }
