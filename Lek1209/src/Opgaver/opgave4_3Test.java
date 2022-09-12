@@ -2,7 +2,7 @@ package Opgaver;
 
 import javax.swing.*;
 
-public class opgave4_3Alt {
+public class opgave4_3Test {
     public static void main(String[] args) {
 
 
