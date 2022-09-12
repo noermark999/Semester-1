@@ -7,7 +7,7 @@ public class Person {
         private String name;
         private String address;
         private double monthlySalary;
-        private double yearlySalary;
+
         private int companies;
 
         public Person(String name) {
@@ -38,13 +38,12 @@ public class Person {
             return monthlySalary;
         }
 
-        public void YearlySalary() {
-            this.yearlySalary = monthlySalary*12*1.025;
-        }
-
         public double getYearlySalary() {
+            double yearlySalary = monthlySalary*12*1.025;
+
             return yearlySalary;
         }
+
 
         public void setCompanies(int inputCompanies) {
             companies = inputCompanies;
@@ -62,7 +61,7 @@ public class Person {
             System.out.println("Navn: " + name);
             System.out.println("Addresse: " + address);
             System.out.println("Løn: " + monthlySalary);
-            System.out.println("Årsløn:" + yearlySalary);
+            System.out.println("Årsløn:" + getYearlySalary());
             System.out.println("Virksomheder: " + companies);
             System.out.println();
         }

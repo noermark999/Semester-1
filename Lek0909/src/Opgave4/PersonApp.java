@@ -7,7 +7,7 @@ public class PersonApp {
 
         person1.setAddress("Gajsgårdsvej 9, Harboøre");
         person1.setMonthlySalary(20000);
-        person1.YearlySalary();
+        person1.getYearlySalary();
         person1.setCompanies(3);
         person1.printPerson();
         person1.newCompany();
