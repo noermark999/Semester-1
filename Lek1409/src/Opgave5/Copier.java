@@ -1,14 +1,12 @@
 package Opgave5;
 
-import java.awt.print.Paper;
-import java.lang.management.ThreadInfo;
-
 public class Copier {
     private int paper;
     private boolean paperStuck;
 
     public Copier(int paper) {
         this.paper = paper;
+        paperStuck = false;
     }
     public void insertPaper(int paper) {
         if (this.paper + paper <=500) {
