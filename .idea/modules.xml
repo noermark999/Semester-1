@@ -4,11 +4,11 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DMU.iml" filepath="$PROJECT_DIR$/DMU.iml" />
       <module fileurl="file://$PROJECT_DIR$/ForskelligeEksempler/ForskelligeEksempler.iml" filepath="$PROJECT_DIR$/ForskelligeEksempler/ForskelligeEksempler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek0709/Lek0709.iml" filepath="$PROJECT_DIR$/Lek0709/Lek0709.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek0909/Lek0909.iml" filepath="$PROJECT_DIR$/Lek0909/Lek0909.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek1209/Lek1209.iml" filepath="$PROJECT_DIR$/Lek1209/Lek1209.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek1409/Lek1409.iml" filepath="$PROJECT_DIR$/Lek1409/Lek1409.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek1609/Lek1609.iml" filepath="$PROJECT_DIR$/Lek1609/Lek1609.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek1/Lek1.iml" filepath="$PROJECT_DIR$/Lek1/Lek1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek2/Lek2.iml" filepath="$PROJECT_DIR$/Lek2/Lek2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek3/Lek3.iml" filepath="$PROJECT_DIR$/Lek3/Lek3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek4/Lek4.iml" filepath="$PROJECT_DIR$/Lek4/Lek4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek5/Lek5.iml" filepath="$PROJECT_DIR$/Lek5/Lek5.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestsFraBogen/TestsFraBogen.iml" filepath="$PROJECT_DIR$/TestsFraBogen/TestsFraBogen.iml" />
     </modules>
   </component>

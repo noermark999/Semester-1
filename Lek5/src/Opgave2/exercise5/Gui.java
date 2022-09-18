@@ -37,9 +37,9 @@ public class Gui extends Application
     {
         String s = "Datamatiker";
         int x = 20;
-        int y = 10;
+        int y = 20;
         int d = 1;
-        while (d<=11) {
+        while (d<=s.length()) {
             gc.fillText(s.substring(0,d),x,y);
             d++;
             y = y + 15;
