@@ -68,10 +68,9 @@ public class Loekker {
 	}
 
 	public void allPowers() {
-		double sum = 0;
 		int p = 0;
 		while (p<=20) {
-			System.out.println(p + ": " + Math.pow(2,p));
+			System.out.println(p + ": " + (int)Math.pow(2,p));
 			p++;
 		}
 	}
@@ -79,20 +78,16 @@ public class Loekker {
 	public int sumOdd(int a, int b) {
 		int sum = 0;
 		int i = 0;
-		int x = 1;
+		int x = 0;
 		if (a % 2 == 0) {
-			while (i <= b) {
-				sum = sum + i;
-				i = a+x;
-				x = x + 2;
-			}
+			x = 1;
 		} else {
 			x = 0;
-			while (i <= b) {
-				sum = sum + i;
-				i = a + x;
-				x = x + 2;
-			}
+		}
+		while (i <= b) {
+			sum = sum + i;
+			i = a+x;
+			x = x + 2;
 		}
 		return sum;
 	}
