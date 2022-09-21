@@ -9,13 +9,13 @@ public class StarsApp {
 		Stars star = new Stars();
 
 		System.out.println("Figur A");
-		star.starPictureA();
+		star.starPictureA(15);
 		System.out.println("Figur B");
-		star.starPictureB();
+		star.starPictureB(15);
 		System.out.println("Figur C");
-		star.starPictureC();
+		star.starPictureC(15);
 		System.out.println("Figur D");
-		star.starPictureD();
+		star.starPictureD(49);
 
 	}
 

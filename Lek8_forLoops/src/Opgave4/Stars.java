@@ -13,9 +13,9 @@ public class Stars {
         System.out.println();
     }
 
-    public void starPictureA() {
-        for (int row = 1; row <= MAX_ROWS; row++) {
-            for (int star = 10; star >= row; star--) {
+    public void starPictureA(int rows) {
+        for (int row = 1; row <= rows; row++) {
+            for (int star = rows; star >= row; star--) {
                 System.out.print("*");
             }
             System.out.println();
@@ -23,9 +23,9 @@ public class Stars {
         System.out.println();
     }
 
-    public void starPictureB() {
-        for (int row = 1; row <= MAX_ROWS; row++) {
-            for (int space = 9; space >= row; space--) {
+    public void starPictureB(int rows) {
+        for (int row = 1; row <= rows; row++) {
+            for (int space = rows-1; space >= row; space--) {
                 System.out.print(" ");
                 }
             for (int star = 1; star <= row; star++) {
@@ -36,12 +36,12 @@ public class Stars {
         System.out.println();
     }
 
-    public void starPictureC() {
-        for (int row = 1; row <= MAX_ROWS; row++) {
+    public void starPictureC(int rows) {
+        for (int row = 1; row <= rows; row++) {
             for (int star = 2; star <= row; star++) {
                 System.out.print(" ");
             }
-            for (int star = 10; star >= row; star--) {
+            for (int star = rows; star >= row; star--) {
                 System.out.print("*");
             }
             System.out.println();
@@ -49,10 +49,10 @@ public class Stars {
         System.out.println();
     }
 
-    public void starPictureD() {
-        for (int row = 1; row <= MAX_ROWS; row++) {
-            if (row<=5) {
-                for (int space = 4; space >= row; space--) {
+    public void starPictureD(int rows) {
+        for (int row = 1; row <= rows; row++) {
+            if (row<= Math.ceil((double)rows/2)) {
+                for (int space = (int) (Math.ceil((double)rows/2)-1); space >= row; space--) {
                     System.out.print(" ");
                 }
                 for (int star = 1; star <= row; star++) {
@@ -62,13 +62,13 @@ public class Stars {
                     System.out.print("*");
                 }
             } else {
-                for (int space = 7; space <= row; space++) {
+                for (int space = (rows/2+2); space <= row; space++) {
                     System.out.print(" ");
                 }
-                for (int star = 10; star >= row; star--) {
+                for (int star = rows; star >= row; star--) {
                     System.out.print("*");
                 }
-                for (int star = 9; star >= row; star--) {
+                for (int star = rows-1; star >= row; star--) {
                     System.out.print("*");
                 }
             }

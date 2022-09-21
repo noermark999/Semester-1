@@ -8,5 +8,6 @@ public class app {
 
         System.out.println("Opgave 1.2");
         opgave.opgave2(300);
+
     }
 }
