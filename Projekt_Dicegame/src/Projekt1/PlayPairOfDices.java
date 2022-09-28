@@ -1,3 +1,5 @@
+package Projekt1;
+
 import java.util.Scanner;
 
 /**
@@ -12,7 +14,7 @@ public class PlayPairOfDices {
 	private PairOfDices pair;
 
 	/**
-	 * Constructs the PlayRollDie game.
+	 * Constructs the Projekt1.PlayRollDie game.
 	 */
 	public PlayPairOfDices() {
 		pair = new PairOfDices();

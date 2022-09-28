@@ -1,5 +1,7 @@
+package Projekt2;
+
 /**
- * This class models one Die that can be rolled.
+ * This class models one Projekt1.Die that can be rolled.
  */
 public class Die {
 	private int sides;

@@ -1,3 +1,5 @@
+package Projekt1;
+
 import java.util.Scanner;
 
 /**
@@ -27,7 +29,7 @@ public class PairOfDices {
 	private Scanner scan;
 
 	/**
-	 * Constructor for objects of class PairOfDices
+	 * Constructor for objects of class Projekt1.PairOfDices
 	 */
 	//opgave 1
 	public PairOfDices() {

@@ -1,3 +1,5 @@
+package Projekt1;
+
 import java.util.Scanner;
 
 /**
@@ -20,7 +22,7 @@ public class PlayRollDie {
 	private Die die;
 
 	/**
-	 * Constructs the PlayRollDie game.
+	 * Constructs the Projekt1.PlayRollDie game.
 	 */
 	public PlayRollDie() {
 		die = new Die();

@@ -1,5 +1,7 @@
+package Projekt1;
+
 /**
- * This application instantiates the PlayRollDie game and starts it.
+ * This application instantiates the Projekt1.PlayRollDie game and starts it.
  */
 public class RollDieApp {
 
