@@ -10,6 +10,11 @@ public class PlayPig {
     private int player1;
     private int player2;
     private int pointsNeeded;
+    private int rollsPlayer1;
+    private int rollsPlayer2;
+    private int numRolls;
+    private int rounds1;
+    private int rounds2;
 
     //Starter med at lave 1 terning, og der skal angives hvor mange point der skal bruges for at vinde
     public PlayPig(int pointsNeeded) {
@@ -29,11 +34,12 @@ public class PlayPig {
         sum = 0;
 
         boolean finished = false;
-
+        numRolls = 0;
 
         while (!finished) {
             die.roll();
             roll = die.getFaceValue();
+            numRolls++;
             printRoll();
             String goOn;
 
@@ -94,15 +100,21 @@ public class PlayPig {
 
         while (!done) {
             player1 += takeTurn(player1navn);
+            rounds1++;
+            rollsPlayer1 += numRolls;
             System.out.println(player1navn + " point i alt: " + player1);
             System.out.println();
             if (player1 >= pointsNeeded) {
                 done = true;
                 System.out.println(player1navn + " har vundet");
                 System.out.println(player2navn + " fik " + player2 + " Points");
+                System.out.println(player1navn + " slog i gennemsnit " + (rollsPlayer1/rounds1) + "gange pr runde");
+                System.out.println(player2navn + " slog i gennemsnit " + (rollsPlayer2/rounds2) + "gange pr runde");
             }
             if (player2 < pointsNeeded && !done){
                 player2 += takeTurn(player2navn);
+                rounds2++;
+                rollsPlayer2 += numRolls;
                 System.out.println(player2navn + " point i alt: " + player2);
                 System.out.println();
 
@@ -111,6 +123,8 @@ public class PlayPig {
                 done = true;
                 System.out.println(player2navn + " har vundet");
                 System.out.println(player1navn + " fik " + player1 + " Points");
+                System.out.println(player1navn + " slog i gennemsnit " + (rollsPlayer1/rounds1) + "gange pr runde");
+                System.out.println(player2navn + " slog i gennemsnit " + (rollsPlayer2/rounds2) + "gange pr runde");
             }
 
 
