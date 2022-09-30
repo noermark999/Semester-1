@@ -25,10 +25,10 @@ public class StudentNames {
     public void randomize(){
         int length = (mNames.length)-1;
         for (int i = mNames.length-1; i>0;i--) {
-            int x = random.nextInt(length);
-            String temp = mNames[x];
-            mNames[x] = mNames[i];
-            mNames[i] = temp;
+            int rand = random.nextInt(length);
+            String x = mNames[rand];
+            mNames[rand] = mNames[i];
+            mNames[i] = x;
             length--;
         }
     }
@@ -44,6 +44,14 @@ public class StudentNames {
             }
             System.out.println();
             System.out.println();
+        }
+        int x = length-1;
+        if (length%numOfGroups != 0) {
+            System.out.println("Personer til overs: ");
+            for (int i = 0; i < length%numOfGroups; i++) {
+                System.out.print(mNames[x] + ", ");
+                x--;
+            }
         }
     }
 }
