@@ -24,7 +24,7 @@ public class StudentNames {
 
     public void randomize(){
         int length = (mNames.length)-1;
-        for (int i = mNames.length-1; i>0;i--) {
+        for (int i = length; i>0;i--) {
             int rand = random.nextInt(length);
             String x = mNames[rand];
             mNames[rand] = mNames[i];
@@ -37,21 +37,22 @@ public class StudentNames {
         randomize();
         int length = mNames.length;
         int amountInGroups = length/numOfGroups;
+        int numPutInGroups = amountInGroups*numOfGroups;
         for (int i = 0; i < numOfGroups; i++) {
             System.out.println("Gruppe nummer: " + (i + 1));
             for (int i1 = 0; i1 < amountInGroups;i1++){
-                System.out.print(mNames[i1+(i*amountInGroups)] + ", ");
+                System.out.print(mNames[i1+(i*amountInGroups)]);
+                if (i1+1<amountInGroups) {
+                    System.out.print(", ");
+                }
+            }
+            if (length%numOfGroups != 0 && numPutInGroups<(length)) {
+                System.out.print(", ");
+                System.out.print(mNames[numPutInGroups]);
+                numPutInGroups++;
             }
             System.out.println();
             System.out.println();
-        }
-        int x = length-1;
-        if (length%numOfGroups != 0) {
-            System.out.println("Personer til overs: ");
-            for (int i = 0; i < length%numOfGroups; i++) {
-                System.out.print(mNames[x] + ", ");
-                x--;
-            }
         }
     }
 }
