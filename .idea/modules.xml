@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DMU.iml" filepath="$PROJECT_DIR$/DMU.iml" />
       <module fileurl="file://$PROJECT_DIR$/ForskelligeEksempler/ForskelligeEksempler.iml" filepath="$PROJECT_DIR$/ForskelligeEksempler/ForskelligeEksempler.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek12_Arrays/Lek12_Arrays.iml" filepath="$PROJECT_DIR$/Lek12_Arrays/Lek12_Arrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek3_javafx/Lek3_javafx.iml" filepath="$PROJECT_DIR$/Lek3_javafx/Lek3_javafx.iml" />
@@ -11,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/Lek6_if/Lek6_if.iml" filepath="$PROJECT_DIR$/Lek6_if/Lek6_if.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek7_whileLoops/Lek7_whileLoops.iml" filepath="$PROJECT_DIR$/Lek7_whileLoops/Lek7_whileLoops.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek8_forLoops/Lek8_forLoops.iml" filepath="$PROJECT_DIR$/Lek8_forLoops/Lek8_forLoops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjektTicTacToe/ProjektTicTacToe.iml" filepath="$PROJECT_DIR$/ProjektTicTacToe/ProjektTicTacToe.iml" />
       <module fileurl="file://$PROJECT_DIR$/Projekt_Dicegame/Projekt_Dicegame.iml" filepath="$PROJECT_DIR$/Projekt_Dicegame/Projekt_Dicegame.iml" />
       <module fileurl="file://$PROJECT_DIR$/Systemudvikling/Systemudvikling.iml" filepath="$PROJECT_DIR$/Systemudvikling/Systemudvikling.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestsFraBogen/TestsFraBogen.iml" filepath="$PROJECT_DIR$/TestsFraBogen/TestsFraBogen.iml" />

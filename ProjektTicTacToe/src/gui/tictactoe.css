@@ -1,0 +1,24 @@
+.FieldButton{
+  -fx-focus-color: transparent;
+  -fx-font-weight: bold;
+
+  -fx-padding: 5px;
+  -fx-border-insets: 5px;
+  -fx-background-insets: 5px;
+
+  -fx-font-size: 36;
+  -fx-text-fill: chocolate;
+  -fx-background-color: snow;
+  -fx-border-color:gray;
+}
+
+.label {
+-fx-font-weight: bold;
+-fx-font-size: 20;
+}
+
+.winning-square{
+  -fx-text-fill: red;
+  -fx-background-color: radial-gradient( radius 100%, white, lightyellow, lawngreen);
+
+}

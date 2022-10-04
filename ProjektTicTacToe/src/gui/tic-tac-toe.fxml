@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TicTacToeController">
+    <top>
+        <BorderPane>
+            <center>
+        <Button onMouseClicked="#play" text="Play"/>
+            </center>
+        </BorderPane>
+    </top>
+    <center>
+        <GridPane fx:id="gameBoard" BorderPane.alignment="CENTER">
+
+        </GridPane>
+    </center>
+    <bottom>
+        <Label fx:id="lblInfo" />
+    </bottom>
+</BorderPane>
