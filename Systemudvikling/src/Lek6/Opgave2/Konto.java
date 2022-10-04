@@ -1,4 +1,4 @@
-package Lek6;
+package Lek6.Opgave2;
 
 public class Konto {
     private int nr;

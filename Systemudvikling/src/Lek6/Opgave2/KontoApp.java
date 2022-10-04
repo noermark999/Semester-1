@@ -1,4 +1,4 @@
-package Lek6;
+package Lek6.Opgave2;
 
 public class KontoApp {
     public static void main(String[] args) {
