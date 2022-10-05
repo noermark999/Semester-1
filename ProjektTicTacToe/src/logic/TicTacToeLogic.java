@@ -1,8 +1,5 @@
 package logic;
 
-import java.sql.SQLOutput;
-import java.util.Arrays;
-
 public class TicTacToeLogic {
     /* Represent the state of a tic-tac-toe game including
     the current player.
