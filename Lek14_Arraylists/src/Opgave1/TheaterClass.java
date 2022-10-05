@@ -35,27 +35,36 @@ public class TheaterClass {
     }
     public void buySeats(int price) {
         boolean running = true;
-        for (int i = 0; i<seats.length; i++) {
-            for (int j = 0; j<seats[0].length; j++) {
-                if (seats[i][j] == price && running) {
-                    System.out.println("Du købte en plads til " + price + "kr.");
-                    seats[i][j] = 0;
-                    running = false;
+        if (price == 10 || price == 20 || price == 30 || price == 40 || price == 50) {
+            for (int i = 0; i < seats.length; i++) {
+                for (int j = 0; j < seats[0].length; j++) {
+                    if (seats[i][j] == price && running) {
+                        System.out.println("Du købte en plads til " + price + "kr.");
+                        seats[i][j] = 0;
+                        running = false;
+                    }
                 }
             }
-        }
-        if (running) {
-            System.out.println("Der er udsolgt i denne prisklasse");
+            if (running) {
+                System.out.println("Der er udsolgt i denne prisklasse");
+            }
+        } else {
+            System.out.println("ingen pladser til denne pris");
         }
     }
     public void buySeats(int row, int seat) {
         row -= 1;
         seat -= 1;
-        if (seats[row][seat] != 0) {
-            System.out.println("Du har købt en plads til prisen " + seats[row][seat]);
-            seats[row][seat] = 0;
+        if (row > seats.length || seat > seats[0].length || row<0 || seat<0) {
+            System.out.println("Fejl du har tastet et sædde der ikke findes");
         } else {
-            System.out.println("Sædet er ikke ledig");
+
+            if (seats[row][seat] != 0) {
+                System.out.println("Du har købt en plads til prisen " + seats[row][seat]);
+                seats[row][seat] = 0;
+            } else {
+                System.out.println("Sædet er ikke ledig");
+            }
         }
     }
     public void start() {
