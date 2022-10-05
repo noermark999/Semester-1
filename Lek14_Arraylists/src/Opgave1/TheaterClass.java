@@ -15,7 +15,6 @@ public class TheaterClass {
             {30, 40, 50, 50, 50, 50, 50, 50, 40, 30},
     };
     private final Scanner scan = new Scanner(System.in);
-    private boolean seat;
 
     public int[][] getSeats() {
         return seats;

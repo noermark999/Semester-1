@@ -13,7 +13,7 @@ public class TicTacToeLogic {
     private int mCurrentPlayer = 1;
 
     private int usedFields = 0;
-    private final int[][] board = new int[3][3]; //Laver et 2d array som er 3x3 og giver det navnet board
+    private final int[][] board = new int[SIZE][SIZE]; //Laver et 2d array som er 3x3 og giver det navnet board
 
     public TicTacToeLogic() {
     }
