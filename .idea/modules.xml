@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ForskelligeEksempler/ForskelligeEksempler.iml" filepath="$PROJECT_DIR$/ForskelligeEksempler/ForskelligeEksempler.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek12_Arrays/Lek12_Arrays.iml" filepath="$PROJECT_DIR$/Lek12_Arrays/Lek12_Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek14_Arraylists/Lek14_Arraylists.iml" filepath="$PROJECT_DIR$/Lek14_Arraylists/Lek14_Arraylists.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek3_javafx/Lek3_javafx.iml" filepath="$PROJECT_DIR$/Lek3_javafx/Lek3_javafx.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek4_classes/Lek4_classes.iml" filepath="$PROJECT_DIR$/Lek4_classes/Lek4_classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek5_typesystem/Lek5_typesystem.iml" filepath="$PROJECT_DIR$/Lek5_typesystem/Lek5_typesystem.iml" />
