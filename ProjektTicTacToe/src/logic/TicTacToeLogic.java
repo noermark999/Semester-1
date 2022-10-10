@@ -1,5 +1,7 @@
 package logic;
 
+import gui.TicTacToeController;
+
 public class TicTacToeLogic {
     /* Represent the state of a tic-tac-toe game including
     the current player.
@@ -86,6 +88,11 @@ public class TicTacToeLogic {
         return 0;
     }
 
+    public void comLogic() {
+        if (mCurrentPlayer == 1) {
+            set(1,1);
+        }
+    }
 
     /**
      * Inspector
