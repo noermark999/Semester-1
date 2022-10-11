@@ -1,7 +1,7 @@
 package Lek6.Opgave2;
 
 public class Konto {
-    private int nr;
+    private final int nr;
     private int saldo;
     private String kontoType;
     private String status;
