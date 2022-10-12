@@ -24,12 +24,15 @@ public class Gui extends Application {
         stage.show();
 
     }
+
     private final ListView<String> lvwNames = new ListView<>();
     private final ArrayList<String> boyNames = new ArrayList<>();
     private final ArrayList<String> girlNames = new ArrayList<>();
     private final TextField txfName = new TextField();
     private final ToggleGroup group = new ToggleGroup();
     private boolean isBoys = true;
+    private RadioButton boys = new RadioButton("Boy");
+    private RadioButton girls = new RadioButton("Girl");
 
     protected void initContent(GridPane pane) {
 
@@ -42,13 +45,11 @@ public class Gui extends Application {
         // set vertical gap between components
         pane.setVgap(10);
 
-        RadioButton boys = new RadioButton("Boy");
-        pane.add(boys,0,0);
+        pane.add(boys, 0, 0);
         boys.setToggleGroup(group);
         boys.setOnAction(event -> boysList());
 
-        RadioButton girls = new RadioButton("Girl");
-        pane.add(girls,1,0);
+        pane.add(girls, 1, 0);
         girls.setToggleGroup(group);
         girls.setOnAction(event -> girlsList());
 
@@ -64,7 +65,6 @@ public class Gui extends Application {
         pane.add(lvwNames, 1, 1, 1, 5);
         lvwNames.setPrefWidth(200);
         lvwNames.setPrefHeight(200);
-        lvwNames.getItems().setAll(boyNames);
 
         ChangeListener<String> listener = (ov, oldString, newString) -> this.selectionChanged();
         lvwNames.getSelectionModel().selectedItemProperty().addListener(listener);
@@ -81,21 +81,30 @@ public class Gui extends Application {
 
 
     private void addAction() {
-        if (!txfName.getText().isEmpty()){
-            if (isBoys) {
-                boyNames.add(txfName.getText());
-                lvwNames.getItems().setAll(boyNames);
-                txfName.clear();
+        if (boys.isSelected() || girls.isSelected()) {
+            if (!txfName.getText().isEmpty()) {
+                if (isBoys) {
+                    boyNames.add(txfName.getText());
+                    lvwNames.getItems().setAll(boyNames);
+                    txfName.clear();
+                } else {
+                    girlNames.add(txfName.getText());
+                    lvwNames.getItems().setAll(girlNames);
+                    txfName.clear();
+                }
+
             } else {
-                girlNames.add(txfName.getText());
-                lvwNames.getItems().setAll(girlNames);
-                txfName.clear();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Add name");
+                alert.setHeaderText("No named typed");
+                alert.setContentText("Type the name of the person");
+                alert.show();
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Add name");
-            alert.setHeaderText("No named typed");
-            alert.setContentText("Type the name of the person");
+            alert.setTitle("Select boys or girls");
+            alert.setHeaderText("No sex selected");
+            alert.setContentText("Select the sex of the person");
             alert.show();
         }
     }
