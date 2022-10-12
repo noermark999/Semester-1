@@ -41,8 +41,8 @@ public class SwapGui extends Application {
     }
 
     private void swap() {
-        String placeholder = firstWord.getText();
+        String temp = firstWord.getText();
         firstWord.setText(secondWord.getText());
-        secondWord.setText(placeholder);
+        secondWord.setText(temp);
     }
 }
