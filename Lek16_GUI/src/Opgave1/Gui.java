@@ -94,7 +94,7 @@ public class Gui extends Application {
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Add person");
-            alert.setHeaderText("No named or title typed");
+            alert.setHeaderText("No name or title typed");
             alert.setContentText("Type the name and title of the person");
             alert.show();
         }
