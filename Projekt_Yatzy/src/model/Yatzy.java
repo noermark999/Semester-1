@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Ref;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Yatzy {
@@ -18,10 +16,6 @@ public class Yatzy {
 
     public Yatzy() {
         Die die = new Die();
-        for (int i = 0; i < values.length; i++) {
-            die.roll();
-            values[i] = die.getFaceValue();
-        }
     }
 
     /**
@@ -61,12 +55,14 @@ public class Yatzy {
     public void throwDice(boolean[] holds) {
         Die die = new Die();
         for (int i = 0; i < values.length; i++) {
-            if (!holds[i]) {
+            if (!holds[i] && throwCount < 3) {
                 die.roll();
                 values[i] = die.getFaceValue();
             }
         }
-        throwCount++;
+        if (throwCount < 3) {
+            throwCount++;
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -147,9 +143,9 @@ public class Yatzy {
         int[] freq = calcCounts();
         for (int i = 0; i < freq.length; i++) {
             if (freq[i] >= 2 && points < i * 2) {
-                for (int j = i+1; j < freq.length; j++) {
+                for (int j = i + 1; j < freq.length; j++) {
                     if (freq[j] >= 2) {
-                        points = (i*2) + (j*2);
+                        points = (i * 2) + (j * 2);
                     }
                 }
             }
@@ -196,11 +192,10 @@ public class Yatzy {
         int[] freq = calcCounts();
         for (int i = 0; i < freq.length; i++) {
             if (freq[i] == 2 || freq[i] == 3) {
-
-                for (int j = i+1; j < freq.length; j++) {
+                for (int j = i + 1; j < freq.length; j++) {
                     if (freq[j] == 2 || freq[j] == 3) {
                         if (freq[i] == 3 || freq[j] == 3) {
-                            points = (i*freq[i]) + (j*freq[j]);
+                            points = (i * freq[i]) + (j * freq[j]);
                         }
                     }
                 }
@@ -216,12 +211,12 @@ public class Yatzy {
     public int smallStraightPoints() {
         int holder = 0;
         int[] freq = calcCounts();
-        for (int i = 0; i < freq.length-1; i++) {
+        for (int i = 0; i < freq.length - 1; i++) {
             if (freq[i] == 1) {
                 holder += 1;
             }
         }
-        if (holder == 5){
+        if (holder == 5) {
             return 15;
         }
         return 0;
@@ -239,7 +234,7 @@ public class Yatzy {
                 holder += 1;
             }
         }
-        if (holder == 5){
+        if (holder == 5) {
             return 20;
         }
         return 0;
@@ -250,7 +245,7 @@ public class Yatzy {
      */
     public int chancePoints() {
         int points = 0;
-        for (int i = 0; i<values.length; i++) {
+        for (int i = 0; i < values.length; i++) {
             points += values[i];
         }
         return points;
@@ -263,7 +258,7 @@ public class Yatzy {
     public int yatzyPoints() {
         int points = 0;
         int[] freq = calcCounts();
-        for (int i = 0; i < freq.length; i++) {
+        for (int i = 1; i < freq.length; i++) {
             if (freq[i] == 5) {
                 points = 50;
             }
