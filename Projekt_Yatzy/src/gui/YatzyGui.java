@@ -5,10 +5,7 @@ import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -50,8 +47,9 @@ public class YatzyGui extends Application {
     private Label lblRolled;
     private Label[] lblResults;
     private boolean[] holds;
-
     private Button btnRoll;
+    private Button btnStart;
+    private int roundsPlayed;
 
     private void initContent(GridPane pane) {
         pane.setGridLinesVisible(false);
@@ -85,6 +83,8 @@ public class YatzyGui extends Application {
             txfValues[i].setMaxWidth(75);
             txfValues[i].setFont(Font.font(30));
             txfValues[i].setAlignment(Pos.CENTER);
+            txfValues[i].setText("");
+            txfValues[i].setDisable(true);
         }
 
         chbHolds = new CheckBox[5];
@@ -98,6 +98,10 @@ public class YatzyGui extends Application {
 
         btnRoll = new Button("Roll");
         dicePane.add(btnRoll, 3, 2);
+        btnRoll.setDisable(true);
+
+        btnStart = new Button("Start");
+        dicePane.add(btnStart,2,2);
 
         lblRolled = new Label("Rolled: " + dice.getThrowCount());
         dicePane.add(lblRolled, 4, 2);
@@ -126,6 +130,7 @@ public class YatzyGui extends Application {
             txfResults[i].setEditable(false);
             txfResults[i].setPrefWidth(w);
             txfResults[i].setOnMouseClicked(event -> this.chooseFieldAction(event));
+            txfResults[i].setDisable(true);
         }
 
         lblResults = new Label[]{new Label("1s"), new Label("2s"), new Label("3s"), new Label("4s"),
@@ -143,6 +148,7 @@ public class YatzyGui extends Application {
         scorePane.add(txfSumSame, 3, 5);
         txfSumSame.setPrefWidth(w);
         txfSumSame.setEditable(false);
+        txfSumSame.setDisable(true);
 
         lblBonus = new Label("Bonus:");
         scorePane.add(lblBonus, 4, 5);
@@ -151,6 +157,7 @@ public class YatzyGui extends Application {
         scorePane.add(txfBonus, 5, 5);
         txfBonus.setPrefWidth(w);
         txfBonus.setEditable(false);
+        txfBonus.setDisable(true);
 
         lblSumOther = new Label("Sum:");
         scorePane.add(lblSumOther, 2, 14);
@@ -159,6 +166,7 @@ public class YatzyGui extends Application {
         scorePane.add(txfSumOther, 3, 14);
         txfSumOther.setPrefWidth(w);
         txfSumOther.setEditable(false);
+        txfSumOther.setDisable(true);
 
         lblTotal = new Label("Total:");
         scorePane.add(lblTotal, 4, 14);
@@ -167,8 +175,10 @@ public class YatzyGui extends Application {
         scorePane.add(txfTotal, 5, 14);
         txfTotal.setPrefWidth(w);
         txfTotal.setEditable(false);
+        txfTotal.setDisable(true);
 
         btnRoll.setOnAction(event -> rollAction());
+        btnStart.setOnAction(event -> startAction());
 
     }
 
@@ -177,6 +187,23 @@ public class YatzyGui extends Application {
     // Create a method for btnRoll's action.
     // Hint: Create small helper methods to be used in the action method.
     // TODO
+
+    private void startAction() {
+        roundsPlayed = 0;
+        for (int i = 0; i < txfValues.length; i++) {
+            txfValues[i].setDisable(false);
+        }
+        for (int i = 0; i < dice.getResults().length; i++) {
+            txfResults[i].setDisable(false);
+        }
+        txfSumSame.setDisable(false);
+        txfBonus.setDisable(false);
+        txfSumOther.setDisable(false);
+        txfTotal.setDisable(false);
+        btnRoll.setDisable(false);
+        rollAction();
+        btnStart.setDisable(true);
+    }
     private void rollAction() {
         holds = new boolean[5];
         for (int i = 0; i < holds.length; i++) {
@@ -194,6 +221,7 @@ public class YatzyGui extends Application {
         if (dice.getThrowCount()==3) {
             btnRoll.setDisable(true);
         }
+
     }
 
     private void updateValues() {
@@ -254,6 +282,18 @@ public class YatzyGui extends Application {
         txt.setDisable(true);
 
         reset();
+
+        roundsPlayed++;
+        if (roundsPlayed >= 15) {
+            btnRoll.setDisable(true);
+            btnStart.setDisable(false);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Done");
+            alert.setHeaderText("The game has finished");
+            alert.setContentText("You ended with " + txfTotal.getText() + " points" + System.lineSeparator() +
+                    "Press the start button if you want to play again");
+            alert.show();
+        }
     }
 
     private void reset() {
