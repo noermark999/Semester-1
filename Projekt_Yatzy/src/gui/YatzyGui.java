@@ -196,6 +196,9 @@ public class YatzyGui extends Application {
         for (int i = 0; i < dice.getResults().length; i++) {
             txfResults[i].setDisable(false);
         }
+        for (int i = 0; i < 5; i++) {
+            chbHolds[i].setDisable(false);
+        }
         txfSumSame.setDisable(false);
         txfBonus.setDisable(false);
         txfSumOther.setDisable(false);
@@ -208,7 +211,6 @@ public class YatzyGui extends Application {
         holds = new boolean[5];
         for (int i = 0; i < holds.length; i++) {
             holds[i] = chbHolds[i].isSelected();
-            chbHolds[i].setDisable(false);
         }
         dice.throwDice(holds);
         updateValues();
@@ -285,14 +287,28 @@ public class YatzyGui extends Application {
 
         roundsPlayed++;
         if (roundsPlayed >= 15) {
-            btnRoll.setDisable(true);
-            btnStart.setDisable(false);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Done");
             alert.setHeaderText("The game has finished");
             alert.setContentText("You ended with " + txfTotal.getText() + " points" + System.lineSeparator() +
                     "Press the start button if you want to play again");
             alert.show();
+
+            for (int i = 0; i < txfValues.length; i++) {
+                txfValues[i].setDisable(true);
+            }
+            for (int i = 0; i < dice.getResults().length; i++) {
+                txfResults[i].setDisable(true);
+            }
+            for (int i = 0; i < 5; i++) {
+                chbHolds[i].setDisable(true);
+            }
+            txfSumSame.setDisable(true);
+            txfBonus.setDisable(true);
+            txfSumOther.setDisable(true);
+            txfTotal.setDisable(true);
+            btnRoll.setDisable(true);
+            btnStart.setDisable(false);
         }
     }
 
