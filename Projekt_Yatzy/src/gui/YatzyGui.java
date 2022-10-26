@@ -93,6 +93,7 @@ public class YatzyGui extends Application {
             chbHolds[i] = checkBox;
             dicePane.add(chbHolds[i], i, 1);
             chbHolds[i].setText("Hold");
+            chbHolds[i].setDisable(true);
         }
 
         btnRoll = new Button("Roll");
@@ -180,6 +181,7 @@ public class YatzyGui extends Application {
         holds = new boolean[5];
         for (int i = 0; i < holds.length; i++) {
             holds[i] = chbHolds[i].isSelected();
+            chbHolds[i].setDisable(false);
         }
         dice.throwDice(holds);
         updateValues();
