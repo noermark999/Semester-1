@@ -40,7 +40,7 @@ public class Series {
     public ArrayList<String> getGuestActors() {
         ArrayList<String> guestActors = new ArrayList<>();
         for (var episodes : getEpisodes()) {
-            guestActors.add(episodes.getGuestActors().toString());
+            guestActors.addAll(episodes.getGuestActors());
         }
         return guestActors;
     }
