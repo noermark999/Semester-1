@@ -1,4 +1,4 @@
-package model;
+package Opgave1;
 
 import java.util.Random;
 

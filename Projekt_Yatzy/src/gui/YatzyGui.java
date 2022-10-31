@@ -9,9 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import model.Yatzy;
-
-import java.util.Arrays;
+import Opgave1.Yatzy;
 
 public class YatzyGui extends Application {
 

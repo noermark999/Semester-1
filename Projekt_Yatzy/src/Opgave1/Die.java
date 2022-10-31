@@ -1,4 +1,4 @@
-package model;
+package Opgave1;
 
 /**
  * This class models one Projekt1.Die that can be rolled.
