@@ -29,5 +29,6 @@ public class App {
 
         System.out.println(rental1.getPrice());
         System.out.println(rental2.getPrice());
+
     }
 }

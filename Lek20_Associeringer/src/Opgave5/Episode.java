@@ -7,7 +7,7 @@ public class Episode {
     private ArrayList<String> guestActors;
     private int lengthMinutes;
 
-    protected Episode(int number, ArrayList<String> guestActors, int lengthMinutes) {
+    Episode(int number, ArrayList<String> guestActors, int lengthMinutes) {
         this.number = number;
         this.guestActors = guestActors;
         this.lengthMinutes = lengthMinutes;
