@@ -7,7 +7,6 @@ public class Rental {
     private int days;
     private String date;
     private ArrayList<Car> cars = new ArrayList<>();
-    private Car car;
 
     public Rental(int number, String date, int days) {
         this.number = number;
@@ -32,13 +31,9 @@ public class Rental {
         return cars;
     }
 
-    public Car getCar() {
-        return car;
-    }
-
     public double getPrice() {
         double price = 0;
-        for (var cars : getCars()) {
+        for (var cars : cars) {
             price += cars.getPricePerDay();
         }
         return price * days;

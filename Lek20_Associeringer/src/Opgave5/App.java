@@ -1,5 +1,9 @@
 package Opgave5;
 
+import Opgave5.Model.Episode;
+import Opgave5.Model.Series;
+
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class App {
@@ -24,6 +28,7 @@ public class App {
 
         ArrayList<String> guestActorsEp2 = new ArrayList<>();
         guestActorsEp2.add("Peter");
+        guestActorsEp2.add("Emily");
 
         series.createEpisode(2,guestActorsEp2,35);
 
@@ -31,10 +36,34 @@ public class App {
 
         series.createEpisode(3,guestActorsEp3,32);
 
-        System.out.println(series.totalLength());
+        System.out.println("total længde på episoderne: " + series.totalLength());
 
         System.out.println(series.getGuestActors());
 
+        System.out.println("Titlen på episode 1: " + series.getEpisodes().get(0).getSeries().getTitle());
 
+        series.printEpisodes();
+        System.out.println();
+
+        series.removeEpisode(1);
+        System.out.println();
+
+        series.printEpisodes();
+        System.out.println();
+
+        System.out.println("total længde på episoderne: " + series.totalLength());
+        System.out.println();
+
+        System.out.println(series.getGuestActors());
+        System.out.println();
+
+        series.removeEpisode(2);
+        System.out.println();
+
+        series.printEpisodes();
+        System.out.println();
+
+        System.out.println(series.getGuestActors());
+        System.out.println();
     }
 }
