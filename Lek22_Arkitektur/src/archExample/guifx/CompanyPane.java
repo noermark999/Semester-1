@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import archExample.application.controller.Controller;
 import archExample.application.model.Company;
+import archExample.application.model.Customer;
 import archExample.application.model.Employee;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -25,6 +26,7 @@ public class CompanyPane extends GridPane {
 	private TextField txfName, txfHours;
 	private TextArea txaEmps, txaCustomers;
 	private ListView<Company> lvwCompanies;
+	private ListView<Customer> lvwCustomers;
 
 	public CompanyPane() {
 		this.setPadding(new Insets(20));
@@ -68,6 +70,11 @@ public class CompanyPane extends GridPane {
 		txaEmps.setPrefWidth(200);
 		txaEmps.setPrefHeight(100);
 		txaEmps.setEditable(false);
+
+		Label lblCustomers = new Label("Customers:");
+		this.add(lblCustomers, 1, 4);
+		GridPane.setValignment(lblCustomers, VPos.BASELINE);
+		lblCustomers.setPadding(new Insets(4, 0, 4, 0));
 
 		txaCustomers = new TextArea();
 		this.add(txaCustomers,2,4);
@@ -188,6 +195,11 @@ public class CompanyPane extends GridPane {
 				sb.append(emp + "\n");
 			}
 			txaEmps.setText(sb.toString());
+			StringBuilder sb1 = new StringBuilder();
+			for (Customer customer : company.getCustomers()) {
+				sb1.append(customer.getName() + "\n");
+			}
+			txaCustomers.setText(sb1.toString());
 		} else {
 			txfName.clear();
 			txfHours.clear();
