@@ -59,11 +59,6 @@ public class Series {
     }
 
     public void removeEpisode(int number) {
-        for (Iterator<Episode> episodeIterator = episodes.iterator(); episodeIterator.hasNext();) {
-            Episode episode = episodeIterator.next();
-            if (episode.getNumber() == number) {
-                episodeIterator.remove();
-            }
-        }
+        episodes.removeIf(episode -> episode.getNumber() == number);
     }
 }
