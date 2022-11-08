@@ -99,6 +99,10 @@ public class CompanyPane extends GridPane {
 		hbxButtons.getChildren().add(btnDelete);
 		btnDelete.setOnAction(event -> this.deleteAction());
 
+		Button btnCustomer = new Button("Add Customer");
+		hbxButtons.getChildren().add(btnCustomer);
+		btnCustomer.setOnAction(event -> this.customerAction());
+
 		HBox hbxClose = new HBox(20);
 		this.add(hbxClose, 2, 5, 1, 1);
 		hbxClose.setPadding(new Insets(10, 0, 0, 0));
@@ -166,6 +170,12 @@ public class CompanyPane extends GridPane {
 				alert.show();
 			}
 		}
+	}
+	private void customerAction() {
+		CustomerWindow dia = new CustomerWindow("Add customer");
+		dia.showAndWait();
+		updateControls();
+
 	}
 
 	private void closeAction() {

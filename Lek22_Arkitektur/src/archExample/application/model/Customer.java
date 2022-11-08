@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 public class Customer {
     private String name;
-    private ArrayList<Company> companies = new ArrayList<>();
+    private final ArrayList<Company> companies = new ArrayList<>();
 
     public Customer(String name) {
         this.name = name;
+    }
+
+    public ArrayList<Company> getCompanies() {
+        return companies;
     }
 
     public void addCompany(Company company) {

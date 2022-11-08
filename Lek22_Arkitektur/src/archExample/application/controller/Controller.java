@@ -134,6 +134,16 @@ public class Controller {
         customer.setName(name);
     }
 
+    public static void addCustomerToCompany(Customer customer, Company company) {
+        company.addCustomer(customer);
+    }
+
+    public static void removeCustomerFromCompany(Customer customer, Company company) {
+        if (company != null) {
+            company.removeCustomer(customer);
+        }
+    }
+
     /**
      * Get all the companies
      */
