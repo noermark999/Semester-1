@@ -41,7 +41,7 @@ public class EmployeeWindow extends Stage {
 
 	// -------------------------------------------------------------------------
 
-	private TextField txfName, txfWage, txfEmploymentYear;
+	private TextField txfName, txfWage, txfEmploymentYear, txfHours;
 	private CheckBox chbCompany;
 	private ComboBox<Company> cbbCompany;
 	private Label lblError;
@@ -59,41 +59,47 @@ public class EmployeeWindow extends Stage {
 		pane.add(txfName, 0, 1);
 		txfName.setPrefWidth(200);
 
-		Label lblHours = new Label("Hourly Wage");
-		pane.add(lblHours, 0, 2);
+		Label lblHourly_wage = new Label("Hourly Wage");
+		pane.add(lblHourly_wage, 0, 2);
 
 		txfWage = new TextField();
 		pane.add(txfWage, 0, 3);
 
+		Label lblHours = new Label("Weekly Hours");
+		pane.add(lblHours, 0, 4);
+
+		txfHours = new TextField();
+		pane.add(txfHours, 0, 5);
+
 		chbCompany = new CheckBox("Company");
-		pane.add(chbCompany, 0, 4);
+		pane.add(chbCompany, 0, 6);
 		ChangeListener<Boolean> listener = (ov, oldValue, newValue) -> selectedCompanyChanged(newValue);
 		chbCompany.selectedProperty().addListener(listener);
 
 		Label lblEmploymentYear = new Label("Employment Year");
-		pane.add(lblEmploymentYear,0,5);
+		pane.add(lblEmploymentYear,0,7);
 
 		txfEmploymentYear = new TextField();
-		pane.add(txfEmploymentYear,0,6);
+		pane.add(txfEmploymentYear,0,8);
 		txfEmploymentYear.setDisable(true);
 
 		cbbCompany = new ComboBox<>();
-		pane.add(cbbCompany, 0, 7);
+		pane.add(cbbCompany, 0, 9);
 		cbbCompany.getItems().addAll(Controller.getCompanies());
 		cbbCompany.setDisable(true);
 
 		Button btnCancel = new Button("Cancel");
-		pane.add(btnCancel, 0, 8);
+		pane.add(btnCancel, 0, 10);
 		GridPane.setHalignment(btnCancel, HPos.LEFT);
 		btnCancel.setOnAction(event -> cancelAction());
 
 		Button btnOK = new Button("OK");
-		pane.add(btnOK, 0, 8);
+		pane.add(btnOK, 0, 10);
 		GridPane.setHalignment(btnOK, HPos.RIGHT);
 		btnOK.setOnAction(event -> okAction());
 
 		lblError = new Label();
-		pane.add(lblError, 0, 9);
+		pane.add(lblError, 0, 11);
 		lblError.setStyle("-fx-text-fill: red");
 
 		initControls();
@@ -102,6 +108,7 @@ public class EmployeeWindow extends Stage {
 	private void initControls() {
 		if (employee != null) {
 			txfName.setText(employee.getName());
+			txfHours.setText(String.valueOf(employee.getHours()));
 			txfWage.setText("" + employee.getWage());
 			txfEmploymentYear.setText(String.valueOf(employee.getEmploymentYear()));
 			if (employee.getCompany() != null) {
@@ -112,6 +119,7 @@ public class EmployeeWindow extends Stage {
 			}
 		} else {
 			txfName.clear();
+			txfHours.clear();
 			txfWage.clear();
 			cbbCompany.getSelectionModel().select(0);
 		}
@@ -138,27 +146,37 @@ public class EmployeeWindow extends Stage {
 			if (wage < 0) {
 				lblError.setText("Wage is not a positive number");
 			} else {
-
-				boolean companyIsSelected = chbCompany.isSelected();
-				Company newCompany = cbbCompany.getSelectionModel().getSelectedItem();
-
-				// Call application.controller methods
-				if (employee != null) {
-					Controller.updateEmployee(employee, name, wage);
-					if (companyIsSelected) {
-						Controller.addEmployeeToCompany(employee, newCompany);
-						employee.setEmploymentYear(employmentYear);
-					} else {
-						Controller.removeEmployeeFromCompany(employee, employee.getCompany());
-					}
-				} else {
-					if (companyIsSelected) {
-						Controller.createEmployee(name, wage, employmentYear, newCompany);
-					} else {
-						Controller.createEmployee(name, wage);
-					}
+				int hours = -1;
+				try {
+					hours = Integer.parseInt(txfHours.getText().trim());
+				} catch (NumberFormatException ex) {
+					// do nothing
 				}
-				hide();
+				if (hours < 0) {
+					lblError.setText("Hours is not a positive number");
+				} else {
+
+					boolean companyIsSelected = chbCompany.isSelected();
+					Company newCompany = cbbCompany.getSelectionModel().getSelectedItem();
+
+					// Call application.controller methods
+					if (employee != null) {
+						Controller.updateEmployee(employee, name, wage);
+						if (companyIsSelected) {
+							Controller.addEmployeeToCompany(employee, newCompany);
+							employee.setEmploymentYear(employmentYear);
+						} else {
+							Controller.removeEmployeeFromCompany(employee, employee.getCompany());
+						}
+					} else {
+						if (companyIsSelected) {
+							Controller.createEmployee(name, wage, employmentYear, newCompany, hours);
+						} else {
+							Controller.createEmployee(name, wage, hours);
+						}
+					}
+					hide();
+				}
 			}
 		}
 	}

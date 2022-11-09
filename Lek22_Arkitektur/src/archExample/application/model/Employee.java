@@ -3,14 +3,16 @@ package archExample.application.model;
 public class Employee {
 	private String name;
 	private int wage; // hourly wage
+	private int hours; // weekly work hours
 	private int employmentYear;
 
 	// link to company class (--> 0..1)
 	private Company company;
 
-	public Employee(String name, int wage) {
+	public Employee(String name, int wage, int hours) {
 		this.name = name;
 		this.wage = wage;
+		this.hours = hours;
 	}
 
 	public String getName() {
@@ -27,6 +29,14 @@ public class Employee {
 
 	public void setWage(int wage) {
 		this.wage = wage;
+	}
+
+	public int getHours() {
+		return hours;
+	}
+
+	public void setHours(int hours) {
+		this.hours = hours;
 	}
 
 	@Override
@@ -70,8 +80,7 @@ public class Employee {
 	 * Returns the weekly salary of this employee.
 	 */
 	public int weeklySalary() {
-		int salary = wage * company.getHours();
-		return salary;
+		return wage * hours;
 	}
 
 }

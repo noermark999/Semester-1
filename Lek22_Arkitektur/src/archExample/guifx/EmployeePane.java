@@ -16,11 +16,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Paint;
 
 public class EmployeePane extends GridPane {
-	private TextField txfName, txfWage, txfCompany, txfSalary, txfEmploymentYear;
+	private TextField txfName, txfWage, txfCompany, txfSalary, txfEmploymentYear, txfHours;
 	private ListView<Employee> lvwEmployees;
 
 	public EmployeePane() {
@@ -55,31 +57,39 @@ public class EmployeePane extends GridPane {
 		this.add(txfWage, 2, 2);
 		txfWage.setEditable(false);
 
+		Label lblHours = new Label("Weekly Hours:");
+		this.add(lblHours, 1, 3);
+
+		txfHours = new TextField();
+		this.add(txfHours, 2, 3);
+		txfHours.setEditable(false);
+
 		Label lblCompany = new Label("Company:");
-		this.add(lblCompany, 1, 3);
+		this.add(lblCompany, 1, 4);
 
 		txfCompany = new TextField();
-		this.add(txfCompany, 2, 3);
+		this.add(txfCompany, 2, 4);
 		txfCompany.setEditable(false);
 
 		Label lblSalary = new Label("Weekly Salary:");
-		this.add(lblSalary, 1, 4);
+		this.add(lblSalary, 1, 5);
 
 		txfSalary = new TextField();
-		this.add(txfSalary, 2, 4);
+		this.add(txfSalary, 2, 5);
 		txfSalary.setEditable(false);
 
 		Label lblEmploymentYear = new Label("Employment Year");
-		this.add(lblEmploymentYear,1,5);
+		this.add(lblEmploymentYear,1,6);
 
 		txfEmploymentYear = new TextField();
-		this.add(txfEmploymentYear,2,5);
+		this.add(txfEmploymentYear,2,6);
 		txfEmploymentYear.setEditable(false);
 
 		HBox hbxButtons = new HBox(20);
-		this.add(hbxButtons, 0, 7, 3, 1);
+		this.add(hbxButtons, 0, 8, 3, 1);
 		hbxButtons.setPadding(new Insets(10, 0, 0, 0));
 		hbxButtons.setAlignment(Pos.BASELINE_LEFT);
+		//hbxButtons.setBackground(Background.fill(Paint.valueOf("RED")));
 
 		Button btnCreate = new Button("Create");
 		hbxButtons.getChildren().add(btnCreate);
@@ -94,9 +104,10 @@ public class EmployeePane extends GridPane {
 		btnDelete.setOnAction(event -> this.deleteAction());
 
 		HBox hbxClose = new HBox(20);
-		this.add(hbxClose, 2, 7, 1, 1);
+		this.add(hbxClose, 2, 8, 1, 1);
 		hbxClose.setPadding(new Insets(10, 0, 0, 0));
 		hbxClose.setAlignment(Pos.BASELINE_RIGHT);
+		//hbxClose.setBackground(Background.fill(Paint.valueOf("BLUE")));
 
 		Button btnClose = new Button("Close");
 		hbxClose.getChildren().add(btnClose);
@@ -176,6 +187,7 @@ public class EmployeePane extends GridPane {
 		Employee employee = lvwEmployees.getSelectionModel().getSelectedItem();
 		if (employee != null) {
 			txfName.setText(employee.getName());
+			txfHours.setText(String.valueOf(employee.getHours()));
 			txfWage.setText("kr " + employee.getWage());
 			if (employee.getCompany() != null) {
 				txfCompany.setText("" + employee.getCompany());
@@ -189,6 +201,7 @@ public class EmployeePane extends GridPane {
 		} else {
 			txfName.clear();
 			txfWage.clear();
+			txfHours.clear();
 			txfCompany.clear();
 			txfSalary.clear();
 			txfEmploymentYear.clear();

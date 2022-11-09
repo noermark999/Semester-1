@@ -12,8 +12,8 @@ public class Controller {
      * Creates a new Company.<br />
      * Requires: hours >= 0.
      */
-    public static Company createCompany(String name, int hours) {
-        Company company = new Company(name, hours);
+    public static Company createCompany(String name, Company.companySize companySize) {
+        Company company = new Company(name, companySize);
         Storage.addCompany(company);
         return company;
     }
@@ -30,9 +30,9 @@ public class Controller {
      * Updates the company.<br />
      * Requires: hours >= 0.
      */
-    public static void updateCompany(Company company, String name, int hours) {
+    public static void updateCompany(Company company, String name, Company.companySize companySize) {
         company.setName(name);
-        company.setHours(hours);
+        company.setSize(companySize);
     }
 
     /**
@@ -42,14 +42,51 @@ public class Controller {
         return Storage.getCompanies();
     }
 
+    public static ArrayList<Company> getCompaniesStor() {
+        ArrayList<Company> result = new ArrayList<>();
+        for (Company company : getCompanies()) {
+            if (company.size == Company.companySize.STOR) {
+                result.add(company);
+            }
+        }
+        return result;
+    }
+    public static ArrayList<Company> getCompaniesMellemStor() {
+        ArrayList<Company> result = new ArrayList<>();
+        for (Company company : getCompanies()) {
+            if (company.size == Company.companySize.MELLEMSTOR) {
+                result.add(company);
+            }
+        }
+        return result;
+    }
+    public static ArrayList<Company> getCompaniesLille() {
+        ArrayList<Company> result = new ArrayList<>();
+        for (Company company : getCompanies()) {
+            if (company.size == Company.companySize.LILLE) {
+                result.add(company);
+            }
+        }
+        return result;
+    }
+    public static ArrayList<Company> getCompaniesMikro() {
+        ArrayList<Company> result = new ArrayList<>();
+        for (Company company : getCompanies()) {
+            if (company.size == Company.companySize.MIKRO) {
+                result.add(company);
+            }
+        }
+        return result;
+    }
+
     // -------------------------------------------------------------------------
 
     /**
      * Creates a new employee.<br />
      * Requires: wage >= 0.
      */
-    public static Employee createEmployee(String name, int wage) {
-        Employee employee = new Employee(name, wage);
+    public static Employee createEmployee(String name, int wage, int hours) {
+        Employee employee = new Employee(name, wage, hours);
         Storage.addEmployee(employee);
         return employee;
     }
@@ -58,8 +95,8 @@ public class Controller {
      * Creates a new employee.<br />
      * Requires: wage >= 0, company!=null.
      */
-    public static Employee createEmployee(String name, int wage, int employmentYear, Company company) {
-        Employee employee = createEmployee(name, wage);
+    public static Employee createEmployee(String name, int wage, int employmentYear, Company company, int hours) {
+        Employee employee = createEmployee(name, wage, hours);
         employee.setEmploymentYear(employmentYear);
         company.addEmployee(employee);
         return employee;
@@ -157,16 +194,16 @@ public class Controller {
      * Initializes the storage with some objects.
      */
     public static void initStorage() {
-        Company c1 = Controller.createCompany("IBM", 37);
-        Company c2 = Controller.createCompany("AMD", 40);
-        Controller.createCompany("SLED", 45);
-        Controller.createCompany("Vector", 32);
+        Company c1 = Controller.createCompany("IBM", Company.companySize.STOR);
+        Company c2 = Controller.createCompany("AMD", Company.companySize.STOR);
+        Controller.createCompany("SLED", Company.companySize.MELLEMSTOR);
+        Controller.createCompany("Vector", Company.companySize.MIKRO);
 
-        Controller.createEmployee("Bob Dole", 210, 2001, c2);
-        Controller.createEmployee("Alice Schmidt", 250, 2009, c1);
-        Controller.createEmployee("George Down", 150, 2019, c2);
+        Controller.createEmployee("Bob Dole", 210, 2001, c2,37);
+        Controller.createEmployee("Alice Schmidt", 250, 2009, c1,40);
+        Controller.createEmployee("George Down", 150, 2019, c2,50);
 
-        Controller.createEmployee("Rita Uphill", 300);
+        Controller.createEmployee("Rita Uphill", 300,25);
 
         Customer cu1 = Controller.createCustomer("Jysk");
         Customer cu2 = Controller.createCustomer("Lidl");

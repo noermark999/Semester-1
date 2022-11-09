@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Company {
 	private String name;
-	private int hours; // weekly work hours
 
 	// link to Employee class (--> 0..*)
 	private final ArrayList<Employee> employees = new ArrayList<>();
@@ -12,9 +11,13 @@ public class Company {
 	// Link to Customer class (--> 0..*)
 	private final ArrayList<Customer> customers = new ArrayList<>();
 
-	public Company(String name, int hours) {
+	public enum companySize {MIKRO, LILLE, MELLEMSTOR, STOR}
+
+	public companySize size;
+
+	public Company(String name, companySize companySize) {
 		this.name = name;
-		this.hours = hours;
+		size = companySize;
 	}
 
 	public String getName() {
@@ -25,17 +28,9 @@ public class Company {
 		this.name = name;
 	}
 
-	public int getHours() {
-		return hours;
-	}
-
-	public void setHours(int hours) {
-		this.hours = hours;
-	}
-
 	@Override
 	public String toString() {
-		return name + " (" + hours + " hours)";
+		return name;
 	}
 
 	// -----------------------------------------------------------------------------
@@ -106,4 +101,7 @@ public class Company {
 		return total;
 	}
 
+	public void setSize(companySize size) {
+		this.size = size;
+	}
 }

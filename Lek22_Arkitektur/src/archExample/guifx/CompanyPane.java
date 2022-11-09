@@ -11,22 +11,18 @@ import javafx.beans.value.ChangeListener;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 public class CompanyPane extends GridPane {
-	private TextField txfName, txfHours;
+	private TextField txfName, txfSize;
 	private TextArea txaEmps, txaCustomers;
 	private ListView<Company> lvwCompanies;
-	private ListView<Customer> lvwCustomers;
+	private ToggleGroup toggleGroup = new ToggleGroup();
+	private RadioButton[] radioButton = new RadioButton[Company.companySize.values().length];
+	private RadioButton rbAll = new RadioButton("Alle");
 
 	public CompanyPane() {
 		this.setPadding(new Insets(20));
@@ -37,8 +33,25 @@ public class CompanyPane extends GridPane {
 		Label lblComp = new Label("Companies");
 		this.add(lblComp, 0, 0);
 
+		HBox hBox = new HBox(15);
+		this.add(hBox,0,1);
+
+		for (int i = 0; i<Company.companySize.values().length;i++) {
+			radioButton[i] = new RadioButton();
+			radioButton[i].setText(String.valueOf(Company.companySize.values()[i]));
+			hBox.getChildren().add(radioButton[i]);
+			radioButton[i].setUserData(Company.companySize.values()[i]);
+			radioButton[i].setToggleGroup(toggleGroup);
+			radioButton[i].setOnAction(event -> this.radioButtonAction());
+		}
+
+		hBox.getChildren().add(rbAll);
+		rbAll.setToggleGroup(toggleGroup);
+		rbAll.setOnAction(event -> rbAllAction());
+		rbAll.setSelected(true);
+
 		lvwCompanies = new ListView<>();
-		this.add(lvwCompanies, 0, 1, 1, 3);
+		this.add(lvwCompanies, 0, 2, 1, 4);
 		lvwCompanies.setPrefWidth(200);
 		lvwCompanies.setPrefHeight(200);
 		lvwCompanies.getItems().setAll(Controller.getCompanies());
@@ -47,43 +60,43 @@ public class CompanyPane extends GridPane {
 		lvwCompanies.getSelectionModel().selectedItemProperty().addListener(listener);
 
 		Label lblName = new Label("Name:");
-		this.add(lblName, 1, 1);
+		this.add(lblName, 1, 2);
 
 		txfName = new TextField();
-		this.add(txfName, 2, 1);
+		this.add(txfName, 2, 2);
 		txfName.setEditable(false);
 
-		Label lblHours = new Label("Weekly Hours:");
-		this.add(lblHours, 1, 2);
+		Label lblSize = new Label("Size:");
+		this.add(lblSize, 1, 3);
 
-		txfHours = new TextField();
-		this.add(txfHours, 2, 2);
-		txfHours.setEditable(false);
+		txfSize = new TextField();
+		this.add(txfSize, 2, 3);
+		txfSize.setEditable(false);
 
 		Label lblEmps = new Label("Employees:");
-		this.add(lblEmps, 1, 3);
+		this.add(lblEmps, 1, 5);
 		GridPane.setValignment(lblEmps, VPos.BASELINE);
 		lblEmps.setPadding(new Insets(4, 0, 4, 0));
 
 		txaEmps = new TextArea();
-		this.add(txaEmps, 2, 3);
+		this.add(txaEmps, 2, 5);
 		txaEmps.setPrefWidth(200);
 		txaEmps.setPrefHeight(100);
 		txaEmps.setEditable(false);
 
 		Label lblCustomers = new Label("Customers:");
-		this.add(lblCustomers, 1, 4);
+		this.add(lblCustomers, 1, 6);
 		GridPane.setValignment(lblCustomers, VPos.BASELINE);
 		lblCustomers.setPadding(new Insets(4, 0, 4, 0));
 
 		txaCustomers = new TextArea();
-		this.add(txaCustomers,2,4);
+		this.add(txaCustomers,2,6);
 		txaCustomers.setPrefWidth(200);
 		txaCustomers.setPrefHeight(100);
 		txaCustomers.setEditable(false);
 
 		HBox hbxButtons = new HBox(20);
-		this.add(hbxButtons, 0, 5, 3, 1);
+		this.add(hbxButtons, 0, 7, 3, 1);
 		hbxButtons.setPadding(new Insets(10, 0, 0, 0));
 		hbxButtons.setAlignment(Pos.BASELINE_LEFT);
 
@@ -104,18 +117,22 @@ public class CompanyPane extends GridPane {
 		btnCustomer.setOnAction(event -> this.customerAction());
 
 		HBox hbxClose = new HBox(20);
-		this.add(hbxClose, 2, 5, 1, 1);
+		this.add(hbxClose, 2, 7, 1, 1);
 		hbxClose.setPadding(new Insets(10, 0, 0, 0));
 		hbxClose.setAlignment(Pos.BASELINE_RIGHT);
 
 		Button btnClose = new Button("Close");
-		this.add(btnClose,2,5);
+		this.add(btnClose,2,7);
 		hbxClose.getChildren().add(btnClose);
 		btnClose.setOnAction(event -> this.closeAction());
 
 		if (lvwCompanies.getItems().size() > 0) {
 			lvwCompanies.getSelectionModel().select(0);
 		}
+	}
+
+	private void rbAllAction() {
+		lvwCompanies.getItems().setAll(Controller.getCompanies());
 	}
 
 	// -------------------------------------------------------------------------
@@ -126,7 +143,11 @@ public class CompanyPane extends GridPane {
 
 		// Wait for the modal dialog to close
 
-		lvwCompanies.getItems().setAll(Controller.getCompanies());
+		if (rbAll.isSelected()) {
+			rbAllAction();
+		} else {
+			radioButtonAction();
+		}
 		int index = lvwCompanies.getItems().size() - 1;
 		lvwCompanies.getSelectionModel().select(index);
 	}
@@ -141,7 +162,11 @@ public class CompanyPane extends GridPane {
 			// Wait for the modal dialog to close
 
 			int selectIndex = lvwCompanies.getSelectionModel().getSelectedIndex();
-			lvwCompanies.getItems().setAll(Controller.getCompanies());
+			if (rbAll.isSelected()) {
+				rbAllAction();
+			} else {
+				radioButtonAction();
+			}
 			lvwCompanies.getSelectionModel().select(selectIndex);
 		}
 	}
@@ -195,11 +220,22 @@ public class CompanyPane extends GridPane {
 		this.updateControls();
 	}
 
+	private void radioButtonAction() {
+		RadioButton radioButton = (RadioButton) toggleGroup.getSelectedToggle();
+		Company.companySize companySize = (Company.companySize) radioButton.getUserData();
+		switch (companySize) {
+			case STOR -> lvwCompanies.getItems().setAll(Controller.getCompaniesStor());
+			case MELLEMSTOR -> lvwCompanies.getItems().setAll(Controller.getCompaniesMellemStor());
+			case LILLE -> lvwCompanies.getItems().setAll(Controller.getCompaniesLille());
+			case MIKRO -> lvwCompanies.getItems().setAll(Controller.getCompaniesMikro());
+		}
+	}
+
 	public void updateControls() {
 		Company company = lvwCompanies.getSelectionModel().getSelectedItem();
 		if (company != null) {
 			txfName.setText(company.getName());
-			txfHours.setText("" + company.getHours());
+			txfSize.setText(String.valueOf(company.size));
 			StringBuilder sb = new StringBuilder();
 			for (Employee emp : company.getEmployees()) {
 				sb.append(emp + "\n");
@@ -212,8 +248,9 @@ public class CompanyPane extends GridPane {
 			txaCustomers.setText(sb1.toString());
 		} else {
 			txfName.clear();
-			txfHours.clear();
 			txaEmps.clear();
+			txfSize.clear();
+			txaCustomers.clear();
 		}
 	}
 
