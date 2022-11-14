@@ -42,37 +42,10 @@ public class Controller {
         return Storage.getCompanies();
     }
 
-    public static ArrayList<Company> getCompaniesStor() {
+    public static ArrayList<Company> getCompaniesSize(Company.companySize companySize) {
         ArrayList<Company> result = new ArrayList<>();
         for (Company company : getCompanies()) {
-            if (company.size == Company.companySize.STOR) {
-                result.add(company);
-            }
-        }
-        return result;
-    }
-    public static ArrayList<Company> getCompaniesMellemStor() {
-        ArrayList<Company> result = new ArrayList<>();
-        for (Company company : getCompanies()) {
-            if (company.size == Company.companySize.MELLEMSTOR) {
-                result.add(company);
-            }
-        }
-        return result;
-    }
-    public static ArrayList<Company> getCompaniesLille() {
-        ArrayList<Company> result = new ArrayList<>();
-        for (Company company : getCompanies()) {
-            if (company.size == Company.companySize.LILLE) {
-                result.add(company);
-            }
-        }
-        return result;
-    }
-    public static ArrayList<Company> getCompaniesMikro() {
-        ArrayList<Company> result = new ArrayList<>();
-        for (Company company : getCompanies()) {
-            if (company.size == Company.companySize.MIKRO) {
+            if (company.size == companySize) {
                 result.add(company);
             }
         }

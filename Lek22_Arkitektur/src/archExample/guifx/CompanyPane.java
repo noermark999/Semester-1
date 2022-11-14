@@ -224,10 +224,7 @@ public class CompanyPane extends GridPane {
 		RadioButton radioButton = (RadioButton) toggleGroup.getSelectedToggle();
 		Company.companySize companySize = (Company.companySize) radioButton.getUserData();
 		switch (companySize) {
-			case STOR -> lvwCompanies.getItems().setAll(Controller.getCompaniesStor());
-			case MELLEMSTOR -> lvwCompanies.getItems().setAll(Controller.getCompaniesMellemStor());
-			case LILLE -> lvwCompanies.getItems().setAll(Controller.getCompaniesLille());
-			case MIKRO -> lvwCompanies.getItems().setAll(Controller.getCompaniesMikro());
+			case STOR, MELLEMSTOR, LILLE, MIKRO -> lvwCompanies.getItems().setAll(Controller.getCompaniesSize(companySize));
 		}
 	}
 
