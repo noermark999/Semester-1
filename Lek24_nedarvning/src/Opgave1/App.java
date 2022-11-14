@@ -16,6 +16,7 @@ public class App {
         Synsmand s1 = new Synsmand("Signe", "Petersgade 21", 2019,160,25);
         mekanikere.add(s1);
 
+
         System.out.println(samletLoen(mekanikere));
         System.out.println("Expected: 31181");
 
