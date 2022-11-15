@@ -36,4 +36,8 @@ public class OrderLine {
         return product;
     }
 
+    public double getOrderLinePrice() {
+        return product.getUnitPrice() * count;
+    }
+
 }
