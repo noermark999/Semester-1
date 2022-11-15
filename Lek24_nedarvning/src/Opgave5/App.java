@@ -1,7 +1,5 @@
 package Opgave5;
 
-import Opgave1.Mekaniker;
-
 import java.util.ArrayList;
 
 import static Opgave5.GeometricFigures.totalArea;
