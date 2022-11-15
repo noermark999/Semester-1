@@ -1,4 +1,4 @@
-package minihandel;
+package Opgave3;
 
 public class PercentDiscount extends Discount{
     private double discountPercentage;

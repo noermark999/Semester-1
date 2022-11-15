@@ -1,4 +1,4 @@
-package minihandel;
+package Opgave3;
 
 public class FixedDiscount extends Discount{
     private int fixedDiscount;

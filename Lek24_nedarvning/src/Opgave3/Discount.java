@@ -1,4 +1,4 @@
-package minihandel;
+package Opgave3;
 
 public abstract class Discount {
     public Discount( ) {

@@ -1,4 +1,4 @@
-package minihandel;
+package Opgave3;
 
 /**
  * Models a product with a name and a price.

@@ -1,4 +1,4 @@
-package minihandel;
+package Opgave3;
 
 /**
  * Models an OrderLine in an Order.
