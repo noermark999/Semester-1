@@ -8,7 +8,7 @@ public class App {
         Product soda = new Product(2,"Sodavand", 14);
         Product banan = new Product(3,"Banan",3.5);
         Product vindruer = new Product(4,"Vindruer",20);
-        Product fjernsyn = new Product(5,"Fjernsyn",3000);
+        Product fjernsyn = new Product(5,"Fjernsyn",1500);
 
         LocalDate localDate1 = LocalDate.of(2001,3,24);
         LocalDate localDate2 = LocalDate.of(2005,8,10);
