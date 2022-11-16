@@ -52,21 +52,15 @@ public class CompanyPane extends GridPane {
 	// -------------------------------------------------------------------------
 
 	private void orderByName() {
-		ArrayList<Customer> customers = new ArrayList<>(CustomerController.getCustomers());
-		Collections.sort(customers,new SortByName());
-		lvwCustomers.getItems().setAll(customers);
+		lvwCustomers.getItems().sort(new SortByName());
 	}
 
 	private void orderByAddress() {
-		ArrayList<Customer> customers = new ArrayList<>(CustomerController.getCustomers());
-		Collections.sort(customers,new SortByAddress());
-		lvwCustomers.getItems().setAll(customers);
+		lvwCustomers.getItems().sort(new SortByAddress());
 	}
 
 	private void orderBySizeCategory() {
-		ArrayList<Customer> customers = new ArrayList<>(CustomerController.getCustomers());
-		Collections.sort(customers,new SortByCategory());
-		lvwCustomers.getItems().setAll(customers);
+		lvwCustomers.getItems().sort(new SortByCategory());
 	}
 
 }
