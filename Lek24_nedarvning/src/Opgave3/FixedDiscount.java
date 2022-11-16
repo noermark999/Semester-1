@@ -4,7 +4,6 @@ public class FixedDiscount extends Discount{
     private int fixedDiscount;
     private int discountLimit;
     public FixedDiscount(int fixedDiscount) {
-        super();
         this.fixedDiscount = fixedDiscount;
         this.discountLimit = 1000;
     }

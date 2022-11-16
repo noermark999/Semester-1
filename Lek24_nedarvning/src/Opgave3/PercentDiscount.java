@@ -3,7 +3,6 @@ package Opgave3;
 public class PercentDiscount extends Discount{
     private double discountPercentage;
     public PercentDiscount(int discountPercentage) {
-        super();
         this.discountPercentage = discountPercentage;
     }
 
