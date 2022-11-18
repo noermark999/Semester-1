@@ -50,7 +50,7 @@ public class CompanyPane extends GridPane {
 			hBox.getChildren().add(radioButton[i]);
 			radioButton[i].setUserData(Customer.SizeCategory.values()[i]);
 			radioButton[i].setToggleGroup(toggleGroup);
-			radioButton[i].setOnAction(event -> this.radioButtonAction());
+			radioButton[i].setOnAction(event -> this.filterByName());
 		}
 
 		hBox.getChildren().add(rbAll);
@@ -110,13 +110,16 @@ public class CompanyPane extends GridPane {
 	}
 
 	private void filterByName() {
-		lvwCustomers.getItems().setAll(CustomerController.filterByName(CustomerController.getCustomers(),txfFilterName.getText()));
+		RadioButton radioButton = (RadioButton) toggleGroup.getSelectedToggle();
+		Customer.SizeCategory companySize = (Customer.SizeCategory) radioButton.getUserData();
+		lvwCustomers.getItems().setAll(CustomerController.filterByName(CustomerController.getCustomers(),txfFilterName.getText(),companySize));
+
 	}
 
 	private void radioButtonAction() {
 		RadioButton radioButton = (RadioButton) toggleGroup.getSelectedToggle();
 		Customer.SizeCategory companySize = (Customer.SizeCategory) radioButton.getUserData();
-		lvwCustomers.getItems().setAll(CustomerController.filterByCategory(CustomerController.getCustomers(),companySize));
+		lvwCustomers.getItems().setAll(CustomerController.filterByName(CustomerController.getCustomers(),companySize.toString(),companySize));
 	}
 
 	private void rbAllAction() {

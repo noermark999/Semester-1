@@ -11,24 +11,25 @@ public class CustomerController {
         return new ArrayList<Customer>(CustomerStorage.getAll());
     }
 
-    public static ArrayList<Customer> filterByName(ArrayList<Customer> customers, String name) {
+    public static ArrayList<Customer> filterByName(ArrayList<Customer> customers, String name, Customer.SizeCategory sizeCategory) {
         ArrayList<Customer> list = new ArrayList<>();
         for (Customer customer : customers) {
-            if (customer.getName().toLowerCase().contains(name.toLowerCase())) {
+            if (customer.getName().toLowerCase().contains(name.toLowerCase()) && customer.getCategory().equals(sizeCategory)) {
                 list.add(customer);
-            } else if (customer.getZip().contains(name)) {
+            } else if (customer.getZip().contains(name) && customer.getCategory().equals(sizeCategory)) {
                 list.add(customer);
-            } else if (customer.getTown().toLowerCase().contains(name.toLowerCase())) {
+            } else if (customer.getTown().toLowerCase().contains(name.toLowerCase()) && customer.getCategory().equals(sizeCategory)) {
                 list.add(customer);
-            } else if (customer.getStreet().toLowerCase().contains(name.toLowerCase())) {
+            } else if (customer.getStreet().toLowerCase().contains(name.toLowerCase()) && customer.getCategory().equals(sizeCategory)) {
                 list.add(customer);
-            } else if (customer.getCategory().toString().toLowerCase().equals(name.toLowerCase())) {
+            } else if (customer.getCategory().toString().toLowerCase().equals(name.toLowerCase()) && customer.getCategory().equals(sizeCategory)) {
                 list.add(customer);
             }
         }
         return list;
     }
 
+    /*
     public static ArrayList<Customer> filterByCategory(ArrayList<Customer> customers, Customer.SizeCategory sizeCategory) {
         ArrayList<Customer> list = new ArrayList<>();
         for (Customer customer : customers) {
@@ -38,4 +39,6 @@ public class CustomerController {
         }
         return list;
     }
+
+     */
 }
