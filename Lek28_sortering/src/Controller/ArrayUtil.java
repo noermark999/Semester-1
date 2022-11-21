@@ -1,5 +1,8 @@
 package Controller;
 
+import Opgave3.Application.Model.Customer;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ArrayUtil
@@ -36,4 +39,13 @@ public class ArrayUtil
         a[i] = a[j];
         a[j] = temp;
     }
+    public static void swapCustomer(ArrayList<Customer> a, int i, int j)
+{
+    Customer tempi = a.get(i);
+    Customer tempj = a.get(j);
+    a.remove(i);
+    a.add(i,tempj);
+    a.remove(j);
+    a.add(j,tempi);
+}
 }

@@ -100,7 +100,9 @@ public class CompanyPane extends GridPane {
 	}
 
 	private void orderByName() {
-		lvwCustomers.getItems().sort(new SortByName());
+		ArrayList<Customer> temp = new ArrayList<>(lvwCustomers.getItems());
+		SortingFunctions.selectionSortName(temp);
+		lvwCustomers.getItems().addAll(temp);
 	}
 
 	private void orderByAddress() {
@@ -115,7 +117,6 @@ public class CompanyPane extends GridPane {
 		RadioButton radioButton = (RadioButton) toggleGroup.getSelectedToggle();
 		Customer.SizeCategory companySize = (Customer.SizeCategory) radioButton.getUserData();
 		lvwCustomers.getItems().setAll(CustomerController.filterByName(CustomerController.getCustomers(),txfFilterName.getText(),companySize));
-
 	}
 
 	private void radioButtonAction() {

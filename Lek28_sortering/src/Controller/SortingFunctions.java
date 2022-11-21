@@ -1,5 +1,9 @@
 package Controller;
 
+import Opgave3.Application.Model.Customer;
+
+import java.util.ArrayList;
+
 public class SortingFunctions {
     /**
      Sorts an array, using selection sort.
@@ -11,6 +15,15 @@ public class SortingFunctions {
         {
             int minPos = minimumPosition(a, i);
             ArrayUtil.swap(a, minPos, i);
+        }
+    }
+
+    public static void selectionSortName(ArrayList<Customer> a)
+    {
+        for (int i = 0; i < a.size(); i++)
+        {
+            int minPos = minimumPositionCustomer(a, i);
+            ArrayUtil.swapCustomer(a, minPos, i);
         }
     }
 
@@ -44,7 +57,22 @@ public class SortingFunctions {
         int minPos = from;
         for (int i = from + 1; i < a.length; i++)
         {
-            if (a[i] < a[minPos]) { minPos = i; }
+            if (a[i] < a[minPos]) {
+                minPos = i;
+            }
+        }
+        return minPos;
+    }
+
+    private static int minimumPositionCustomer(ArrayList<Customer> a, int from)
+    {
+        int minPos = from;
+        for (int i = from + 1; i < a.size(); i++)
+        {
+            System.out.println(a.get(minPos).getName().compareTo(a.get(i).getName()));
+            if (a.get(minPos).getName().compareTo(a.get(i).getName()) < minPos) {
+                minPos = i;
+            }
         }
         return minPos;
     }
