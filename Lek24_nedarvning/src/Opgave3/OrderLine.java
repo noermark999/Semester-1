@@ -4,9 +4,9 @@ package Opgave3;
  * Models an OrderLine in an Order.
  */
 public class OrderLine {
-    private int lineNumber;
-    private int count;
-    private Product product;
+    private final int lineNumber;
+    private final int count;
+    private final Product product;
 
     /**
      * An line on the Order

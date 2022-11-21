@@ -12,7 +12,7 @@ public class Yatzy {
     private int throwCount = 0;
 
     // Random number generator.
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public Yatzy() {
         Die die = new Die();
@@ -261,6 +261,7 @@ public class Yatzy {
         for (int i = 1; i < freq.length; i++) {
             if (freq[i] == 5) {
                 points = 50;
+                break;
             }
         }
         return points;

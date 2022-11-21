@@ -3,7 +3,7 @@ package Opgave2.del1;
 import java.util.Scanner;
 
 public class Asterisks {
-    private int[] drawAsterisks;
+    private final int[] drawAsterisks;
     private final int MAX_NUMBER_OF_ASTERISKS = 40;
 
     public Asterisks(int row1, int row2, int row3, int row4, int row5) {

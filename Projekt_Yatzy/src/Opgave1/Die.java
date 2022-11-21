@@ -4,7 +4,7 @@ package Opgave1;
  * This class models one Projekt1.Die that can be rolled.
  */
 public class Die {
-	private int sides;
+	private final int sides;
 	private int faceValue;
 
 	/**

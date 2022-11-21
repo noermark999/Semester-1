@@ -1,7 +1,7 @@
 package Opgave1;
 
 public class Gift {
-    private String description;
+    private final String description;
     private double price;
     private Person person;
 

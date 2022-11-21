@@ -6,7 +6,7 @@ public class Student {
     private boolean active;
     private int age;
     
-    private int[] grades; // indeholder den studerendes karakterer
+    private final int[] grades; // indeholder den studerendes karakterer
     private int numberOfGrades;
     
     private static final int MAX_NUMBER_OF_GRADES = 10;

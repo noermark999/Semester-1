@@ -17,7 +17,7 @@ public class CustomerStorage {
 
     private static ArrayList<Customer> readJSON(){
         ArrayList<Customer> result = new ArrayList<Customer>();
-        var fileName = "/Users/jakobnoermark/IdeaProjects/DMU/Lek26_interface/mock.json";
+        var fileName = "Lek26_interface/mock.json";
 
         String content = null;
         try {

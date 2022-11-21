@@ -10,8 +10,8 @@ public class PlayPairOfDices {
 	/**
 	 * The scanner used for reading user input.
 	 */
-	private Scanner scan;
-	private PairOfDices pair;
+	private final Scanner scan;
+	private final PairOfDices pair;
 
 	/**
 	 * Constructs the Projekt1.PlayRollDie game.

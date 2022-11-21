@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Series {
-    private String title;
+    private final String title;
     private final ArrayList<String> cast;
     private final ArrayList<Episode> episodes = new ArrayList<>();
 

@@ -17,12 +17,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 public class CompanyPane extends GridPane {
-	private TextField txfName, txfSize;
-	private TextArea txaEmps, txaCustomers;
-	private ListView<Company> lvwCompanies;
-	private ToggleGroup toggleGroup = new ToggleGroup();
-	private RadioButton[] radioButton = new RadioButton[Company.companySize.values().length];
-	private RadioButton rbAll = new RadioButton("Alle");
+	private final TextField txfName;
+	private final TextField txfSize;
+	private final TextArea txaEmps;
+	private final TextArea txaCustomers;
+	private final ListView<Company> lvwCompanies;
+	private final ToggleGroup toggleGroup = new ToggleGroup();
+	private final RadioButton[] radioButton = new RadioButton[Company.companySize.values().length];
+	private final RadioButton rbAll = new RadioButton("Alle");
 
 	public CompanyPane() {
 		this.setPadding(new Insets(20));

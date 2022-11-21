@@ -1,12 +1,13 @@
-package Storage;
+package Opgave3.Storage;
 
-import Application.Model.Customer;
+import Opgave3.Application.Model.Customer;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import java.util.ArrayList;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class CustomerStorage {
 

@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class Customer {
 	private String name;
-	private LocalDate birthday;
-	private List<Order> orders = new ArrayList<Order>();
+	private final LocalDate birthday;
+	private final List<Order> orders = new ArrayList<Order>();
 	private Discount discount;
 
 	/**
@@ -54,9 +54,7 @@ public class Customer {
 	}
 
 	public void removeOrder(Order order) {
-		if (orders.contains(order)) {
-			orders.remove(order);
-		}
+        orders.remove(order);
 	}
 
 	public double totalBuy() {

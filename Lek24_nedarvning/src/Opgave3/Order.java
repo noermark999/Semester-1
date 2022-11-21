@@ -6,8 +6,8 @@ import java.util.*;
  * Models an Order with OrderLines and an order number. 
  */
 public class Order {
-    private int number;
-    private List<OrderLine> orderLines = new ArrayList<OrderLine>();
+    private final int number;
+    private final List<OrderLine> orderLines = new ArrayList<OrderLine>();
     
     /**
      * Create the order.

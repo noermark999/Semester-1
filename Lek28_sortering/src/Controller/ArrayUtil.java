@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ArrayUtil
 {
-    private static Random generator = new Random();
+    private static final Random generator = new Random();
 
     /**
      Creates an array filled with random values.

@@ -7,6 +7,6 @@ public class Main {
 
         System.out.println("Hello world!");
         //CustomerStorage.getAll();
-        System.out.println(Paths.get(".").toAbsolutePath().normalize().toString());
+        System.out.println(Paths.get(".").toAbsolutePath().normalize());
     }
 }

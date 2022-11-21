@@ -1,15 +1,17 @@
-package Gui;
+package Opgave3.Gui;
 
-import Application.Controller.CustomerController;
-import Application.Controller.SortByAddress;
-import Application.Controller.SortByCategory;
-import Application.Controller.SortByName;
-import Application.Model.Customer;
+import Opgave3.Application.Controller.CustomerController;
+import Opgave3.Application.Controller.SortByAddress;
+import Opgave3.Application.Controller.SortByCategory;
+import Opgave3.Application.Controller.SortByName;
+import Opgave3.Application.Model.Customer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import Controller.ArrayUtil;
+import Controller.SortingFunctions;
 
 import java.util.ArrayList;
 

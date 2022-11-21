@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class EmployeeWindow extends Stage {
-	private Employee employee;
+	private final Employee employee;
 
 	public EmployeeWindow(String title, Employee employee) {
 		initStyle(StageStyle.UTILITY);

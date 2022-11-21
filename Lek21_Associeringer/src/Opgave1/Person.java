@@ -3,7 +3,7 @@ package Opgave1;
 import java.util.ArrayList;
 
 public class Person {
-    private String name;
+    private final String name;
     private int age;
     private final ArrayList<Gift> gifts = new ArrayList<>();
 

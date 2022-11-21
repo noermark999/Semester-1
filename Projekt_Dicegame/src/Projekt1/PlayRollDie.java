@@ -14,12 +14,12 @@ public class PlayRollDie {
 	/**
 	 * The scanner used for reading user input.
 	 */
-	private Scanner scan;
+	private final Scanner scan;
 	
 	/**
 	 * The die used in the game.
 	 */
-	private Die die;
+	private final Die die;
 
 	/**
 	 * Constructs the Projekt1.PlayRollDie game.

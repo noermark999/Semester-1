@@ -3,9 +3,9 @@ package Opgave2.del2;
 import java.util.Scanner;
 
 public class Asterisks {
-    private int[] drawAsterisks;
+    private final int[] drawAsterisks;
     private final int MAX_NUMBER_OF_ASTERISKS = 40;
-    private Scanner scan;
+    private final Scanner scan;
 
     public Asterisks() {
         drawAsterisks = new int[5];
@@ -36,9 +36,7 @@ public class Asterisks {
             rowNumber[i] = scan.nextInt();
         }
 
-        for (int i = 0; i<drawAsterisks.length;i++){
-            drawAsterisks[i] = rowNumber[i];
-        }
+        System.arraycopy(rowNumber, 0, drawAsterisks, 0, drawAsterisks.length);
 
         double maxAsterisks = MAX_NUMBER_OF_ASTERISKS/maxValue();
 

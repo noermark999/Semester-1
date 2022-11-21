@@ -9,7 +9,7 @@ public class EksempelIf {
 		
 		System.out.println("Er du studerende ja eller nej: ");
 		String svar = scan.nextLine();
-		if (svar.toLowerCase().equals("ja")) {
+		if (svar.equalsIgnoreCase("ja")) {
 			System.out.println("Så er du fattig men lærer en masse");
 		} else if (svar.equals("nej")) {
 			System.out.println("Så er du rig");

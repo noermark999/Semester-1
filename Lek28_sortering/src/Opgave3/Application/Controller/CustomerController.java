@@ -1,7 +1,7 @@
-package Application.Controller;
+package Opgave3.Application.Controller;
 
-import Application.Model.Customer;
-import Storage.CustomerStorage;
+import Opgave3.Application.Model.Customer;
+import Opgave3.Storage.CustomerStorage;
 
 import java.util.ArrayList;
 

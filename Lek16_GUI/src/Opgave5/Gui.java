@@ -31,8 +31,8 @@ public class Gui extends Application {
     private final TextField txfName = new TextField();
     private final ToggleGroup group = new ToggleGroup();
     private boolean isBoys = true;
-    private RadioButton boys = new RadioButton("Boy");
-    private RadioButton girls = new RadioButton("Girl");
+    private final RadioButton boys = new RadioButton("Boy");
+    private final RadioButton girls = new RadioButton("Girl");
 
     protected void initContent(GridPane pane) {
 

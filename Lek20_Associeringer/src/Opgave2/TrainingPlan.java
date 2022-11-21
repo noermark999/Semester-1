@@ -9,7 +9,7 @@ public class TrainingPlan {
 	private char level;
 	private int weeklyWaterHours;
 	private int weeklyStrengthHours;
-	private ArrayList<Swimmer> swimmers = new ArrayList<>();
+	private final ArrayList<Swimmer> swimmers = new ArrayList<>();
 	
 	public TrainingPlan(char level, int weeklyWaterHours, int weeklyStrengthHours) {
 		this.level = level;

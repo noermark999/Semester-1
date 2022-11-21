@@ -28,7 +28,7 @@ public class YatzyGui extends Application {
 
     // -------------------------------------------------------------------------
 
-    private Yatzy dice = new Yatzy();
+    private final Yatzy dice = new Yatzy();
 
     // Shows the face values of the 5 dice.
     private TextField[] txfValues;

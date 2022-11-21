@@ -2,9 +2,9 @@ package Opgave3;
 
 public class Person {
 
-    private String name;
-    private String title;
-    private boolean senior;
+    private final String name;
+    private final String title;
+    private final boolean senior;
 
     public Person(String name, String titel, boolean senior) {
         this.name = name;

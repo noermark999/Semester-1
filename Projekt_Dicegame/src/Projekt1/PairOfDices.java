@@ -10,11 +10,11 @@ public class PairOfDices {
     /**
      * The first die in the pair.
      */
-	private Die die1;
+	private final Die die1;
 	/**
 	 * The second die in the pair.
 	 */
-	private Die die2;
+	private final Die die2;
 	private int rolls;
 	private int roll1;
 	private int roll2;
@@ -26,7 +26,7 @@ public class PairOfDices {
 	private int sixes;
 	private int pairs;
 	private int high;
-	private Scanner scan;
+	private final Scanner scan;
 
 	/**
 	 * Constructor for objects of class Projekt1.PairOfDices

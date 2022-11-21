@@ -3,10 +3,10 @@ package Opgave5.Model;
 import java.util.ArrayList;
 
 public class Episode {
-    private int number;
-    private ArrayList<String> guestActors;
-    private int lengthMinutes;
-    private Series series;
+    private final int number;
+    private final ArrayList<String> guestActors;
+    private final int lengthMinutes;
+    private final Series series;
 
     public Episode(int number, ArrayList<String> guestActors, int lengthMinutes, Series series) {
         this.number = number;

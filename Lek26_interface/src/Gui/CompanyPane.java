@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CompanyPane extends GridPane {
-	private ListView<Customer> lvwCustomers;
+	private final ListView<Customer> lvwCustomers;
 
 	public CompanyPane() {
 		this.setPadding(new Insets(20));

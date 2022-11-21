@@ -14,12 +14,12 @@ public class CrapsPlay {
 	/**
 	 * The first die in the pair.
 	 */
-	private Die die1;
+	private final Die die1;
 	/**
 	 * The second die in the pair.
 	 */
-	private Die die2;
-	private Scanner scan;
+	private final Die die2;
+	private final Scanner scan;
 	private boolean win;
 	private int roll;
 	private int point;

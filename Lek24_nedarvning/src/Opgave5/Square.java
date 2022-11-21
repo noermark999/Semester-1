@@ -1,7 +1,7 @@
 package Opgave5;
 
 public class Square extends GeometricFigures{
-    private double side;
+    private final double side;
 
     public Square(int xCoordinate, int yCoordinate, double side) {
         super(xCoordinate, yCoordinate);

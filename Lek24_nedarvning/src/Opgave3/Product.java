@@ -4,7 +4,7 @@ package Opgave3;
  * Models a product with a name and a price.
  */
 public class Product {
-    private int number;
+    private final int number;
     private String name;
     private double unitPrice;
 

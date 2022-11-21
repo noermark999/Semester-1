@@ -1,8 +1,8 @@
 package Opgave5;
 
 public class Ellipse extends GeometricFigures{
-    private double radius1;
-    private double radius2;
+    private final double radius1;
+    private final double radius2;
     public Ellipse(int xCoordinate, int yCoordinate, double radius1,double radius2) {
         super(xCoordinate, yCoordinate);
         this.radius1 = radius1;

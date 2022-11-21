@@ -6,10 +6,10 @@ import java.util.*;
  * Modeling a Swimmer
  */
 public class Swimmer {
-    private String name;
+    private final String name;
     private String club;
-    private int yearGroup;
-    private ArrayList<Double> lapTimes;
+    private final int yearGroup;
+    private final ArrayList<Double> lapTimes;
     private TrainingPlan trainingPlan;
     
     /**

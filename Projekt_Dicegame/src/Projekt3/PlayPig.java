@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class PlayPig {
     private int roll;
-    private Scanner scan;
-    private Die die;
+    private final Scanner scan;
+    private final Die die;
     private int sum;
     private int player1;
     private int player2;
-    private int pointsNeeded;
+    private final int pointsNeeded;
     private int rollsPlayer1;
     private int rollsPlayer2;
     private int numRolls;

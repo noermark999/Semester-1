@@ -6,7 +6,7 @@ public class Opgaver1 {
         System.out.println(e1_1);
         int e1_2 = 1+2+3+4+5+6+7+8+9+10;
         System.out.println(e1_2);
-        int e1_3 = 1*2*3*4*5*6*7*8*9*10;
+        int e1_3 = 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9 * 10;
         System.out.println(e1_3);
 
         // Bank account balance after 3 years with 5% interests
@@ -24,7 +24,7 @@ public class Opgaver1 {
         System.out.println("|  Jakob  |");
         System.out.println("+---------+");
 
-        System.out.println("");  //linjeskift
+        System.out.println();  //linjeskift
 
         System.out.println("   *     **     *   *    **      **   ");
         System.out.println("   *    *  *    *  *   *    *    *  * ");
@@ -32,7 +32,7 @@ public class Opgaver1 {
         System.out.println("*  *   ******   *  *   *    *    *  *   ");
         System.out.println(" **    *    *   *   *    **      **   ");
 
-        System.out.println("");  //linjeskift
+        System.out.println();  //linjeskift
 
         System.out.print(".--- ");
         System.out.print(".- ");
@@ -40,7 +40,7 @@ public class Opgaver1 {
         System.out.print("--- ");
         System.out.println("-...");
 
-        System.out.println("");  //linjeskift
+        System.out.println();  //linjeskift
 
         System.out.println("   /////  ");
         System.out.println("  +`````+ ");

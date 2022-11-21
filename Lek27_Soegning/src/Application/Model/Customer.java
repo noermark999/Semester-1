@@ -2,7 +2,8 @@ package Application.Model;
 
 public class Customer {
 
-    public enum SizeCategory {UNKNOWN, MICRO, SMALL, MEDIUM, LARGE};
+    public enum SizeCategory {UNKNOWN, MICRO, SMALL, MEDIUM, LARGE}
+
     String name;
     String street;
     String zip;

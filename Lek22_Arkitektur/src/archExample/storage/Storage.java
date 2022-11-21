@@ -7,9 +7,9 @@ import archExample.application.model.Customer;
 import archExample.application.model.Employee;
 
 public class Storage {
-	private static ArrayList<Company> companies = new ArrayList<>();
-	private static ArrayList<Employee> employees = new ArrayList<>();
-	private static ArrayList<Customer> customers = new ArrayList<>();
+	private static final ArrayList<Company> companies = new ArrayList<>();
+	private static final ArrayList<Employee> employees = new ArrayList<>();
+	private static final ArrayList<Customer> customers = new ArrayList<>();
 
 	// -------------------------------------------------------------------------
 

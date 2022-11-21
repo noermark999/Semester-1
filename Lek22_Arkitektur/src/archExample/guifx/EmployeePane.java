@@ -22,8 +22,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
 
 public class EmployeePane extends GridPane {
-	private TextField txfName, txfWage, txfCompany, txfSalary, txfEmploymentYear, txfHours;
-	private ListView<Employee> lvwEmployees;
+	private final TextField txfName;
+	private final TextField txfWage;
+	private final TextField txfCompany;
+	private final TextField txfSalary;
+	private final TextField txfEmploymentYear;
+	private final TextField txfHours;
+	private final ListView<Employee> lvwEmployees;
 
 	public EmployeePane() {
 		this.setPadding(new Insets(20));

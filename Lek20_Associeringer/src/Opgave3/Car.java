@@ -3,10 +3,10 @@ package Opgave3;
 import java.util.ArrayList;
 
 public class Car {
-    private String license;
+    private final String license;
     private double pricePerDay;
-    private int purcaseYear;
-    private ArrayList<Rental> rentals = new ArrayList<>();
+    private final int purcaseYear;
+    private final ArrayList<Rental> rentals = new ArrayList<>();
 
     public Car(String license, int year) {
         this.license = license;

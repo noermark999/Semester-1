@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class CompanyWindow extends Stage {
-	private Company company;
+	private final Company company;
 
 	public CompanyWindow(String title, Company company) {
 		this.initStyle(StageStyle.UTILITY);
@@ -39,8 +39,8 @@ public class CompanyWindow extends Stage {
 	private TextField txfName;
 	private Label lblError;
 
-	private ToggleGroup toggleGroup = new ToggleGroup();
-	private RadioButton[] radioButton = new RadioButton[Company.companySize.values().length];
+	private final ToggleGroup toggleGroup = new ToggleGroup();
+	private final RadioButton[] radioButton = new RadioButton[Company.companySize.values().length];
 
 	private void initContent(GridPane pane) {
 		pane.setPadding(new Insets(10));

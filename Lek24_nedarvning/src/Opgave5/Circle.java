@@ -1,7 +1,7 @@
 package Opgave5;
 
 public class Circle extends GeometricFigures{
-    private double radius;
+    private final double radius;
 
     public Circle(int xCoordinate, int yCoordinate, double radius) {
         super(xCoordinate,yCoordinate);

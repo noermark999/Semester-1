@@ -1,4 +1,4 @@
-package Application.Model;
+package Opgave3.Application.Model;
 
 public class Customer {
 
