@@ -3,7 +3,7 @@ package Lek15.Application.Model;
 import java.util.ArrayList;
 
 public class CarType {
-    private enum Type {A,B,C,D}
+    public enum Type {A,B,C,D}
     private Type type;
     private int PricePerDay;
     private ArrayList<Car> cars = new ArrayList<>();

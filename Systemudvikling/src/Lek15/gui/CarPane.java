@@ -1,8 +1,8 @@
 package Lek15.gui;
-/**
-import archExample.application.model.Company;
-import archExample.application.model.Customer;
-import archExample.application.model.Employee;
+
+import Lek15.Application.Controller.Controller;
+import Lek15.Application.Model.Car;
+import Lek15.Application.Model.CarType;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.geometry.Insets;
@@ -20,7 +20,7 @@ public class CarPane extends GridPane {
 	private final TextField txfSize;
 	private final TextArea txaEmps;
 	private final TextArea txaCustomers;
-	private final ListView<Company> lvwCompanies;
+	private final ListView<Car> lvwCarsA, lvwCarsB, lvwCarsC, lvwCarsD;
 	private final ToggleGroup toggleGroup = new ToggleGroup();
 	private final RadioButton[] radioButton = new RadioButton[Company.companySize.values().length];
 	private final RadioButton rbAll = new RadioButton("Alle");
@@ -31,34 +31,27 @@ public class CarPane extends GridPane {
 		this.setVgap(10);
 		this.setGridLinesVisible(false);
 
+		Controller.initStorage();
+
 		Label lblComp = new Label("Companies");
 		this.add(lblComp, 0, 0);
 
 		HBox hBox = new HBox(15);
 		this.add(hBox,0,1);
 
-		for (int i = 0; i<Company.companySize.values().length;i++) {
-			radioButton[i] = new RadioButton();
-			radioButton[i].setText(String.valueOf(Company.companySize.values()[i]));
-			hBox.getChildren().add(radioButton[i]);
-			radioButton[i].setUserData(Company.companySize.values()[i]);
-			radioButton[i].setToggleGroup(toggleGroup);
-			radioButton[i].setOnAction(event -> this.radioButtonAction());
-		}
-
 		hBox.getChildren().add(rbAll);
 		rbAll.setToggleGroup(toggleGroup);
 		rbAll.setOnAction(event -> rbAllAction());
 		rbAll.setSelected(true);
 
-		lvwCompanies = new ListView<>();
-		this.add(lvwCompanies, 0, 2, 1, 4);
-		lvwCompanies.setPrefWidth(200);
-		lvwCompanies.setPrefHeight(200);
-		lvwCompanies.getItems().setAll(Controller.getCompanies());
+		lvwCarsA = new ListView<>();
+		this.add(lvwCarsA, 0, 2, 1, 4);
+		lvwCarsA.setPrefWidth(200);
+		lvwCarsA.setPrefHeight(200);
+		lvwCarsA.getItems().setAll(Controller.getCars());
 
 		ChangeListener<Company> listener = (ov, oldCompny, newCompany) -> this.selectedCompanyChanged();
-		lvwCompanies.getSelectionModel().selectedItemProperty().addListener(listener);
+		lvwCarsA.getSelectionModel().selectedItemProperty().addListener(listener);
 
 		Label lblName = new Label("Name:");
 		this.add(lblName, 1, 2);
@@ -127,13 +120,13 @@ public class CarPane extends GridPane {
 		hbxClose.getChildren().add(btnClose);
 		btnClose.setOnAction(event -> this.closeAction());
 
-		if (lvwCompanies.getItems().size() > 0) {
-			lvwCompanies.getSelectionModel().select(0);
+		if (lvwCarsA.getItems().size() > 0) {
+			lvwCarsA.getSelectionModel().select(0);
 		}
 	}
 
 	private void rbAllAction() {
-		lvwCompanies.getItems().setAll(Controller.getCompanies());
+		lvwCarsA.getItems().setAll(Controller.getCompanies());
 	}
 
 	// -------------------------------------------------------------------------
@@ -149,12 +142,12 @@ public class CarPane extends GridPane {
 		} else {
 			radioButtonAction();
 		}
-		int index = lvwCompanies.getItems().size() - 1;
-		lvwCompanies.getSelectionModel().select(index);
+		int index = lvwCarsA.getItems().size() - 1;
+		lvwCarsA.getSelectionModel().select(index);
 	}
 
 	private void updateAction() {
-		Company company = lvwCompanies.getSelectionModel().getSelectedItem();
+		Company company = lvwCarsA.getSelectionModel().getSelectedItem();
 		if (company != null) {
 
 			CarWindow dia = new CarWindow("Update Company", company);
@@ -162,18 +155,18 @@ public class CarPane extends GridPane {
 
 			// Wait for the modal dialog to close
 
-			int selectIndex = lvwCompanies.getSelectionModel().getSelectedIndex();
+			int selectIndex = lvwCarsA.getSelectionModel().getSelectedIndex();
 			if (rbAll.isSelected()) {
 				rbAllAction();
 			} else {
 				radioButtonAction();
 			}
-			lvwCompanies.getSelectionModel().select(selectIndex);
+			lvwCarsA.getSelectionModel().select(selectIndex);
 		}
 	}
 
 	private void deleteAction() {
-		Company company = lvwCompanies.getSelectionModel().getSelectedItem();
+		Company company = lvwCarsA.getSelectionModel().getSelectedItem();
 		if (company != null) {
 
 			if (company.employeesCount() == 0) {
@@ -184,7 +177,7 @@ public class CarPane extends GridPane {
 				Optional<ButtonType> result = alert.showAndWait();
 				if ((result.isPresent()) && (result.get() == ButtonType.OK)) {
 					Controller.deleteCompany(company);
-					lvwCompanies.getItems().setAll(Controller.getCompanies());
+					lvwCarsA.getItems().setAll(Controller.getCompanies());
 					this.updateControls();
 				}
 
@@ -225,12 +218,12 @@ public class CarPane extends GridPane {
 		RadioButton radioButton = (RadioButton) toggleGroup.getSelectedToggle();
 		Company.companySize companySize = (Company.companySize) radioButton.getUserData();
 		switch (companySize) {
-			case STOR, MELLEMSTOR, LILLE, MIKRO -> lvwCompanies.getItems().setAll(Controller.getCompaniesSize(companySize));
+			case STOR, MELLEMSTOR, LILLE, MIKRO -> lvwCarsA.getItems().setAll(Controller.getCompaniesSize(companySize));
 		}
 	}
 
 	public void updateControls() {
-		Company company = lvwCompanies.getSelectionModel().getSelectedItem();
+		Company company = lvwCarsA.getSelectionModel().getSelectedItem();
 		if (company != null) {
 			txfName.setText(company.getName());
 			txfSize.setText(String.valueOf(company.size));
@@ -254,4 +247,3 @@ public class CarPane extends GridPane {
 
 }
 
- **/

@@ -1,5 +1,5 @@
 package Lek15.gui;
-/**
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
@@ -54,4 +54,3 @@ public class StartWindow extends Application {
 	}
 
 }
-**/

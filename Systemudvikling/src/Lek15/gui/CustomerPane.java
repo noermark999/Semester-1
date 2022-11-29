@@ -1,5 +1,7 @@
 package Lek15.gui;
-/**
+
+import Lek15.Application.Controller.Controller;
+import Lek15.Application.Model.Customer;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.geometry.Insets;
@@ -13,12 +15,12 @@ import java.util.Optional;
 
 public class CustomerPane extends GridPane {
 	private final TextField txfName;
-	private final TextField txfWage;
-	private final TextField txfCompany;
+	private final TextField txfAge;
+	private final TextField txfCpr;
 	private final TextField txfSalary;
 	private final TextField txfEmploymentYear;
-	private final TextField txfHours;
-	private final ListView<Employee> lvwEmployees;
+	private final TextField txfLicense;
+	private final ListView<Customer> lvwCustomer;
 
 	public CustomerPane() {
 		this.setPadding(new Insets(20));
@@ -29,13 +31,13 @@ public class CustomerPane extends GridPane {
 		Label lblComp = new Label("Employees");
 		this.add(lblComp, 0, 0);
 
-		lvwEmployees = new ListView<>();
-		this.add(lvwEmployees, 0, 1, 1, 6);
-		lvwEmployees.setPrefWidth(200);
-		lvwEmployees.setPrefHeight(200);
-		lvwEmployees.getItems().setAll(Controller.getEmployees());
-		ChangeListener<Employee> listener = (ov, oldEmployee, newEmployee) -> this.selectedEmployeeChanged();
-		lvwEmployees.getSelectionModel().selectedItemProperty().addListener(listener);
+		lvwCustomer = new ListView<>();
+		this.add(lvwCustomer, 0, 1, 1, 6);
+		lvwCustomer.setPrefWidth(200);
+		lvwCustomer.setPrefHeight(200);
+		lvwCustomer.getItems().setAll(Controller.getCustomers());
+		ChangeListener<Customer> listener = (ov, oldValue, newValue) -> this.selectedEmployeeChanged();
+		lvwCustomer.getSelectionModel().selectedItemProperty().addListener(listener);
 
 		Label lblName = new Label("Name:");
 		this.add(lblName, 1, 1);
@@ -45,40 +47,29 @@ public class CustomerPane extends GridPane {
 		txfName.setPrefWidth(200);
 		txfName.setEditable(false);
 
-		Label lblWage = new Label("Hourly Wage:");
-		this.add(lblWage, 1, 2);
+		Label lblAge = new Label("Age:");
+		this.add(lblAge, 1, 2);
 
-		txfWage = new TextField();
-		this.add(txfWage, 2, 2);
-		txfWage.setEditable(false);
+		txfAge = new TextField();
+		this.add(txfAge, 2, 2);
+		txfAge.setEditable(false);
 
-		Label lblHours = new Label("Weekly Hours:");
-		this.add(lblHours, 1, 3);
+		Label lblLicense = new Label("Driver license ID:");
+		this.add(lblLicense, 1, 3);
 
-		txfHours = new TextField();
-		this.add(txfHours, 2, 3);
-		txfHours.setEditable(false);
+		txfLicense = new TextField();
+		this.add(txfLicense, 2, 3);
+		txfLicense.setEditable(false);
 
-		Label lblCompany = new Label("Company:");
-		this.add(lblCompany, 1, 4);
+		Label lblCpr = new Label("CPR-Nr");
+		this.add(lblCpr, 1, 4);
 
-		txfCompany = new TextField();
-		this.add(txfCompany, 2, 4);
-		txfCompany.setEditable(false);
+		txfCpr = new TextField();
+		this.add(txfCpr, 2, 4);
+		txfCpr.setEditable(false);
 
 		Label lblSalary = new Label("Weekly Salary:");
 		this.add(lblSalary, 1, 5);
-
-		txfSalary = new TextField();
-		this.add(txfSalary, 2, 5);
-		txfSalary.setEditable(false);
-
-		Label lblEmploymentYear = new Label("Employment Year");
-		this.add(lblEmploymentYear,1,6);
-
-		txfEmploymentYear = new TextField();
-		this.add(txfEmploymentYear,2,6);
-		txfEmploymentYear.setEditable(false);
 
 		HBox hbxButtons = new HBox(20);
 		this.add(hbxButtons, 0, 8, 3, 1);
@@ -100,20 +91,20 @@ public class CustomerPane extends GridPane {
 		hbxClose.getChildren().add(btnClose);
 		btnClose.setOnAction(event -> this.closeAction());
 
-		if (lvwEmployees.getItems().size() > 0) {
-			lvwEmployees.getSelectionModel().select(0);
+		if (lvwCustomer.getItems().size() > 0) {
+			lvwCustomer.getSelectionModel().select(0);
 		}
 	}
 
 	// -------------------------------------------------------------------------
 
 	private void createAction() {
-		CustomerWindow dia = new CustomerWindow("Create Employee");
+		CustomerWindow dia = new CustomerWindow("Create Customer");
 		dia.showAndWait();
 
 		// Wait for the modal dialog to close
 
-		lvwEmployees.getItems().setAll(Controller.getEmployees());
+		lvwCustomer.getItems().setAll(Controller.getCustomers());
 		this.updateControls();
 	}
 
@@ -135,29 +126,28 @@ public class CustomerPane extends GridPane {
 	}
 
 	public void updateControls() {
-		Employee employee = lvwEmployees.getSelectionModel().getSelectedItem();
+		Employee employee = lvwCustomer.getSelectionModel().getSelectedItem();
 		if (employee != null) {
 			txfName.setText(employee.getName());
-			txfHours.setText(String.valueOf(employee.getHours()));
-			txfWage.setText("kr " + employee.getWage());
+			txfLicense.setText(String.valueOf(employee.getHours()));
+			txfAge.setText("kr " + employee.getWage());
 			if (employee.getCompany() != null) {
-				txfCompany.setText("" + employee.getCompany());
+				txfCpr.setText("" + employee.getCompany());
 				txfSalary.setText("kr " + employee.weeklySalary());
 				txfEmploymentYear.setText(String.valueOf(employee.getEmploymentYear()));
 			} else {
-				txfCompany.clear();
+				txfCpr.clear();
 				txfSalary.clear();
 				txfEmploymentYear.clear();
 			}
 		} else {
 			txfName.clear();
-			txfWage.clear();
-			txfHours.clear();
-			txfCompany.clear();
+			txfAge.clear();
+			txfLicense.clear();
+			txfCpr.clear();
 			txfSalary.clear();
 			txfEmploymentYear.clear();
 		}
 	}
 
 }
-**/
