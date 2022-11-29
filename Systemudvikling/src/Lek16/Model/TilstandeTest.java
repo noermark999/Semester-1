@@ -16,20 +16,27 @@ public class TilstandeTest {
 		Controller.foretagTransaktion(k1, 100);
 		Controller.foretagTransaktion(k1, 200);
 		Controller.foretagTransaktion(k1, -400);
-		Controller.foretagTransaktion(k1,800); //Forhindrer exception
+		Controller.foretagTransaktion(k1,0); //Forhindrer exception
 		Controller.foretagTransaktion(k1, -200); // giver exception, ikke mere
 
-		// Service.foretagTransaktion(k1, 200);
-		// Service.foretagTransaktion(k1, -300);
-		//
-		// System.out.println(k1);
-		//
-		// Konto k2 = Service.createKonto(kontotype);
-		//
-		// Service.foretagTransaktion(k2, 500);
-		// Service.foretagTransaktion(k2, 600);
-		// Service.foretagTransaktion(k2, -1000);
-		// System.out.println(k2);
+		Controller.lukKonto(k1);
+
+		Controller.foretagTransaktion(k1,100);
+
+		 Controller.foretagTransaktion(k1, 200);
+		 Controller.foretagTransaktion(k1, -300);
+		
+		 System.out.println(k1);
+		
+		 Konto k2 = Controller.createKonto(kontotype);
+		
+		 Controller.foretagTransaktion(k2, 500);
+		 Controller.foretagTransaktion(k2, 600);
+		 Controller.foretagTransaktion(k2, -1000);
+		 System.out.println(k2);
+		 Controller.lukKonto(k2);
+
+		 System.out.println(k2);
 
 	}
 }

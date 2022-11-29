@@ -32,4 +32,11 @@ public class Controller {
 		}
 	}
 
+	public static void lukKonto(Konto konto) {
+		try {
+			konto.lukKonto(konto);
+		} catch (RuntimeException exception) {
+			System.out.println(exception.getMessage());
+		}
+	}
 }

@@ -27,16 +27,19 @@ public class Konto {
 
 	public Transaktion createTransaktion(int beløb) {
 		Transaktion transaktion = null;
-		if (!(tilstand == Tilstand.OVERTRUKKET && beløb < 0)) {
-			transaktion = new Transaktion(beløb);
-			transaktioner.add(transaktion);
-			if (beregnSaldo() < 0) {
-				tilstand = Tilstand.OVERTRUKKET;
-			} else {
-				tilstand = Tilstand.AABEN;
-			}
+		if (tilstand != Tilstand.LUKKET) {
+			if (!(tilstand == Tilstand.OVERTRUKKET && beløb < 0)) {
+				transaktion = new Transaktion(beløb);
+				transaktioner.add(transaktion);
+				if (beregnSaldo() < 0) {
+					tilstand = Tilstand.OVERTRUKKET;
+				} else {
+					tilstand = Tilstand.AABEN;
+				}
+			} else
+				throw new RuntimeException("Du forsøger at hæve på en overtrukket konto!");
 		} else
-			throw new RuntimeException("Du forsøger at hæve på en overtrukket konto!");
+			throw new RuntimeException("Kontoen er lukket");
 
 		return transaktion;
 	}
@@ -48,6 +51,16 @@ public class Konto {
 		}
 		return saldo;
 
+	}
+
+	public void lukKonto(Konto konto) {
+		if (tilstand != Tilstand.OVERTRUKKET){
+			System.out.println("De sidste penge på kontoen (" + beregnSaldo() + ") er blevet hævet");
+			int saldo = beregnSaldo();
+			createTransaktion(-saldo);
+			tilstand = Tilstand.LUKKET;
+		} else
+			throw new RuntimeException("Kontoen er overtrukket og kan ikke lukkes");
 	}
 
 	@Override
