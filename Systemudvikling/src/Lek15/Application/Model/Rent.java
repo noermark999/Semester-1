@@ -1,4 +1,4 @@
-package Lek16.Application.Model;
+package Lek15.Application.Model;
 
 public class Rent {
     private int days;

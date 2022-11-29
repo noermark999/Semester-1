@@ -1,10 +1,8 @@
-package Lek16.gui;
-
-import Lek16.Application.Controller.Controller;
-import Lek16.Application.Model.Customer;
+package Lek15.gui;
+/**
+import Lek15.Application.Controller.Controller;
 import archExample.application.model.Company;
 import archExample.application.model.Employee;
-import javafx.beans.value.ChangeListener;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -134,3 +132,4 @@ public class CustomerWindow extends Stage {
 	// -------------------------------------------------------------------------
 
 }
+**/

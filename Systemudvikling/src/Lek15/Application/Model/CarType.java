@@ -1,4 +1,4 @@
-package Lek16.Application.Model;
+package Lek15.Application.Model;
 
 import java.util.ArrayList;
 

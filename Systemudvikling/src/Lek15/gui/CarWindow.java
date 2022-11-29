@@ -1,5 +1,5 @@
-package Lek16.gui;
-
+package Lek15.gui;
+/**
 import archExample.application.model.Company;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -120,3 +120,4 @@ public class CarWindow extends Stage {
 		}
 	}
 
+**/

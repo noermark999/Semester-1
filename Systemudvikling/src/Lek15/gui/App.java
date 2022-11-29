@@ -1,10 +1,10 @@
-package Lek16.gui;
+package Lek15.gui;
 
 import javafx.application.Application;
 
 public class App {
 
 	public static void main(String[] args) {
-		Application.launch(StartWindow.class);
+		//Application.launch(StartWindow.class);
 	}
 }
