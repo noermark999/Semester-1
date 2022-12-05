@@ -1,3 +1,5 @@
+package Opgave1;
+
 public class Customer implements Comparable<Customer>{
     private String name;
     private String street;

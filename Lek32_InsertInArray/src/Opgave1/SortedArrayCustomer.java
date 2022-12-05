@@ -1,3 +1,5 @@
+package Opgave1;
+
 public class SortedArrayCustomer {
     public static void insertCustomer(Customer[] all, Customer c) {
         if (all[0] == null) {
