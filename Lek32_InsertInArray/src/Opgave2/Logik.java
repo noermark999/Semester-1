@@ -31,7 +31,7 @@ public class Logik {
         }
         System.out.println("Længden af ordet er " + ordet.length());
         while (!finished) {
-            System.out.printf("%10s", prikketOrd() + " Brugt " + bogstaverBrugt.toString() + ". Gæt: ");
+            System.out.printf("%10s", prikketOrd() + " Brugt " + bogstaverBrugt + ". Gæt: ");
             guess();
         }
         System.out.println("Ordet var: " + ordet);
@@ -57,6 +57,7 @@ public class Logik {
     private void guess() {
         String guess = scan.nextLine();
         guess = guess.toLowerCase();
+        guess = guess.substring(0,1);
         if (!bogstaverBrugt.contains(guess)) {
             bogstaverBrugt.add(guess);
             find(ordet,guess);
