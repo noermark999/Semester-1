@@ -1,23 +1,33 @@
 package Opgave2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Logik {
     private final Scanner scan = new Scanner(System.in);
 
     private String ordet;
-    private int runder;
+    private int runder, fejl;
     private final ArrayList<String> bogstaverBrugt = new ArrayList<>();
     private boolean finished;
     private final ArrayList<String> prikketord = new ArrayList<>();
 
     public Logik() {
         initOrdliste();
-        startSpil();
+        try {
+            startSpil();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void startSpil() {
+    public void startSpil() throws IOException {
         System.out.println("Velkommen til Ord Gætter");
         System.out.print("Vælg sprog: (d=dansk, e=engelsk): ");
         String sprog = scan.nextLine();
@@ -26,8 +36,13 @@ public class Logik {
             size = OrdListe.getDanske().size();
             ordet = OrdListe.getDanske().get((int) ((Math.random() * size -1) + 1));
         } else if (sprog.equalsIgnoreCase("e")){
-            size = OrdListe.getEngelske().size();
-            ordet = OrdListe.getEngelske().get((int) ((Math.random() * size -1) + 1));
+            URL url = new URL("https://random-word-api.herokuapp.com/word");
+            Scanner scanner = new Scanner(url.openStream());
+            String randomWord = scanner.nextLine();
+            String randomWordTrimmed = randomWord.substring(2,randomWord.length()-2);
+
+            size = randomWordTrimmed.length();
+            ordet = randomWordTrimmed;
         }
         System.out.println("Længden af ordet er " + ordet.length());
         while (!finished) {
@@ -40,7 +55,7 @@ public class Logik {
     }
 
     private StringBuilder prikketOrd() {
-        if (runder == 0) {
+        if (runder == 0 && fejl == 0) {
             for (int i = 0; i < ordet.length(); i++) {
                 prikketord.add("*");
             }
@@ -56,17 +71,22 @@ public class Logik {
 
     private void guess() {
         String guess = scan.nextLine();
-        guess = guess.toLowerCase();
-        guess = guess.substring(0,1);
-        if (!bogstaverBrugt.contains(guess)) {
-            bogstaverBrugt.add(guess);
-            find(ordet,guess);
-            runder++;
-            if (!prikketord.contains("*")) {
-                finished = true;
+        if (guess.length() != 0) {
+            guess = guess.toLowerCase();
+            guess = guess.substring(0,1);
+            if (!bogstaverBrugt.contains(guess)) {
+                bogstaverBrugt.add(guess);
+                find(ordet,guess);
+                runder++;
+                if (!prikketord.contains("*")) {
+                    finished = true;
+                }
+            } else {
+                System.out.println("Bogstav er allerede gættet, Prøv igen");
             }
         } else {
-            System.out.println("Bogstav er allerede gættet, Prøv igen");
+            System.out.println("Skriv et bogstav");
+            fejl++;
         }
 
     }
@@ -97,6 +117,15 @@ public class Logik {
         OrdListe.createDanskOrd("Edderkop");
         OrdListe.createDanskOrd("Lejlighed");
         OrdListe.createDanskOrd("Programmet");
+        File file = new File("/Users/jakobnoermark/IdeaProjects/DMU/Lek32_InsertInArray/res/danskeord.txt");
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNext()) {
+                String ord = scanner.nextLine();
+                OrdListe.createDanskOrd(ord);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
         OrdListe.createEngelskOrd("Logic");
 
