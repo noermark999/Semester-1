@@ -83,8 +83,10 @@ public class OpretBilWindow extends Stage {
     private void okAction() {
         BilMærke bilMærke = cbbBilMærke.getSelectionModel().getSelectedItem();
         Parkeringsplads parkeringsplads = cbbPPlads.getSelectionModel().getSelectedItem();
-        if (bilMærke == null || parkeringsplads == null) {
+        if (bilMærke == null) {
             lblError.setText("Vælg et bilmærke");
+        } else if (parkeringsplads == null) {
+            lblError.setText("Vælg en P-plads");
         } else if (parkeringsplads.getBil() != null) {
             Alert dialog = new Alert(Alert.AlertType.INFORMATION);
             dialog.setTitle("Error");

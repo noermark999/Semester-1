@@ -13,7 +13,7 @@ import javafx.scene.layout.GridPane;
 public class ParkeringhusPane extends GridPane {
 	private final ListView<Parkeringshus> lvwPHuse;
 	private final ListView<String> lvwPPladser;
-	private TextField txfBilNr;
+	private final TextField txfBilNr;
 
 	public ParkeringhusPane() {
 		this.setPadding(new Insets(20));

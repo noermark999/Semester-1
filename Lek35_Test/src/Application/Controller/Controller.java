@@ -38,7 +38,6 @@ public class Controller {
             for (int i = 0; i < hus.optagnePladser().size(); i++) {
                 printWriter.println(hus.optagnePladser().get(i));
             }
-            //printWriter.println(hus.optagnePladser());
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -51,6 +50,7 @@ public class Controller {
         Bil bil4 = createBil("Bt 52 316", BilMærke.PEUGEOT); //Tilføjet for tests
 
         Parkeringshus parkeringshus = createParkeringshus("Havnegade 12, 8000 Aarhus");
+
 
         for (int i = 1; i <= 100; i++) {
             createParkeringsplads(i,parkeringshus);
@@ -65,5 +65,10 @@ public class Controller {
         Storage.getParkeringshuse().get(0).getParkeringspladser().get(2).setBil(bil3);
         Storage.getParkeringshuse().get(0).getParkeringspladser().get(105).setBil(bil4);
 
+        Parkeringshus p = createParkeringshus("DOKK1 parkering, 8000 Aarhus");
+
+        for (int i = 1; i <= 100; i++) {
+            createParkeringsplads(i,p);
+        }
     }
 }
