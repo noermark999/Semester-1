@@ -5,6 +5,8 @@ import Storage.Storage;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Controller {
@@ -31,6 +33,35 @@ public class Controller {
 
     public static void addBilToParkeringspladsNr(Bil bil, Parkeringsplads parkeringsplads) {
         parkeringsplads.setBil(bil);
+    }
+
+    public static ArrayList<Parkeringshus> sortByAdress(){
+        ArrayList<Parkeringshus> p = new ArrayList<>(Storage.getParkeringshuse());
+        p.sort(new Comparator<Parkeringshus>() {
+            @Override
+            public int compare(Parkeringshus o1, Parkeringshus o2) {
+                return o1.getAdresse().compareTo(o2.getAdresse());
+            }
+        });
+        return p;
+    }
+
+    public static ArrayList<Parkeringshus> sortByLedigepladser() {
+        ArrayList<Parkeringshus> p = new ArrayList<>(Storage.getParkeringshuse());
+
+        p.sort(new Comparator<Parkeringshus>() {
+            @Override
+            public int compare(Parkeringshus o1, Parkeringshus o2) {
+                if (o1.antalLedigePladser() < o2.antalLedigePladser()) {
+                    return 1;
+                }
+                if (o1.antalLedigePladser() > o2.antalLedigePladser()) {
+                    return -1;
+                }
+                return 0;
+            }
+        });
+        return p;
     }
 
     public static void writeOptagnePladser(Parkeringshus hus, String filnavn) {

@@ -1,5 +1,6 @@
 package GUI;
 
+import Application.Controller.Controller;
 import Application.Model.Parkeringshus;
 import Storage.Storage;
 import javafx.beans.value.ChangeListener;
@@ -9,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 public class ParkeringhusPane extends GridPane {
 	private final ListView<Parkeringshus> lvwPHuse;
@@ -46,10 +48,30 @@ public class ParkeringhusPane extends GridPane {
 		txfBilNr = new TextField();
 		this.add(txfBilNr,1,5);
 
+		HBox hBox = new HBox(10);
+		this.add(hBox,1,6);
+
 		Button btnOpret = new Button("Opret");
-		this.add(btnOpret,1,6);
+		hBox.getChildren().add(btnOpret);
 		btnOpret.setOnAction(event -> this.opretBilAction());
 
+		Button btnAddress = new Button("By Address");
+		hBox.getChildren().add(btnAddress);
+		btnAddress.setOnAction(event -> this.byaddress());
+
+		Button btnledig = new Button("By Ledige pladser");
+		hBox.getChildren().add(btnledig);
+		btnledig.setOnAction(event -> this.byledigepladser());
+
+
+	}
+
+	private void byledigepladser() {
+		lvwPHuse.getItems().setAll(Controller.sortByLedigepladser());
+	}
+
+	private void byaddress() {
+		lvwPHuse.getItems().setAll(Controller.sortByAdress());
 	}
 
 	private void selectedPHusChanged() {

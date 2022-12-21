@@ -9,6 +9,9 @@ public class Parkeringshus {
 
     private int saldo;
 
+    private int longitude;
+    private int latitude;
+
     public Parkeringshus(String adresse) {
         this.adresse = adresse;
         parkeringspladser = new ArrayList<>();
@@ -97,6 +100,6 @@ public class Parkeringshus {
 
     @Override
     public String toString() {
-        return adresse;
+        return adresse + " (" + antalLedigePladser() + ")";
     }
 }
