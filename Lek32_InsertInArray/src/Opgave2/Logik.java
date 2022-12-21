@@ -46,13 +46,17 @@ public class Logik {
                 runder++;
                 if (!prikketord.contains("*")) {
                     finished = true;
+                    for (String s : bogstaverBrugt) {
+                        if (!ordet.contains(s)) {
+                            fejl++;
+                        }
+                    }
                 }
             } else {
                 System.out.println("Bogstav er allerede gættet, Prøv igen");
             }
         } else {
             System.out.println("Skriv et bogstav");
-            fejl++;
         }
 
     }

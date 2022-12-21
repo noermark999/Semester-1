@@ -17,7 +17,6 @@ public class Ord {
                     length++;
                     scanner.next();
                 }
-                System.out.println(length);
                 try (Scanner scanner1 = new Scanner(file)) {
                     int min = 1;
                     int random = (int) Math.floor(Math.random() * (length - min + 1) + min);
