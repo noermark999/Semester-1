@@ -15,9 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/Lek27_Soegning/Lek27_Soegning.iml" filepath="$PROJECT_DIR$/Lek27_Soegning/Lek27_Soegning.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek28_sortering/Lek28_sortering.iml" filepath="$PROJECT_DIR$/Lek28_sortering/Lek28_sortering.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek32_InsertInArray/Lek32_InsertInArray.iml" filepath="$PROJECT_DIR$/Lek32_InsertInArray/Lek32_InsertInArray.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek33_Exceptions/Lek33_Exceptions.iml" filepath="$PROJECT_DIR$/Lek33_Exceptions/Lek33_Exceptions.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek34_Fletning/Lek34_Fletning.iml" filepath="$PROJECT_DIR$/Lek34_Fletning/Lek34_Fletning.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Lek35_Test/Lek35_Test.iml" filepath="$PROJECT_DIR$/Lek35_Test/Lek35_Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lek35_Semesteropgavetest/Lek35_Semesteropgavetest.iml" filepath="$PROJECT_DIR$/Lek35_Semesteropgavetest/Lek35_Semesteropgavetest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek3_javafx/Lek3_javafx.iml" filepath="$PROJECT_DIR$/Lek3_javafx/Lek3_javafx.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek4_classes/Lek4_classes.iml" filepath="$PROJECT_DIR$/Lek4_classes/Lek4_classes.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lek5_typesystem/Lek5_typesystem.iml" filepath="$PROJECT_DIR$/Lek5_typesystem/Lek5_typesystem.iml" />
@@ -28,6 +26,7 @@
       <module fileurl="file://$PROJECT_DIR$/Projekt_Dicegame/Projekt_Dicegame.iml" filepath="$PROJECT_DIR$/Projekt_Dicegame/Projekt_Dicegame.iml" />
       <module fileurl="file://$PROJECT_DIR$/Projekt_KAS/Projekt_KAS.iml" filepath="$PROJECT_DIR$/Projekt_KAS/Projekt_KAS.iml" />
       <module fileurl="file://$PROJECT_DIR$/Projekt_Yatzy/Projekt_Yatzy.iml" filepath="$PROJECT_DIR$/Projekt_Yatzy/Projekt_Yatzy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Semesteropgave_Jan_2016/Semesteropgave_Jan_2016.iml" filepath="$PROJECT_DIR$/Semesteropgave_Jan_2016/Semesteropgave_Jan_2016.iml" />
       <module fileurl="file://$PROJECT_DIR$/Systemudvikling/Systemudvikling.iml" filepath="$PROJECT_DIR$/Systemudvikling/Systemudvikling.iml" />
       <module fileurl="file://$PROJECT_DIR$/TestsFraBogen/TestsFraBogen.iml" filepath="$PROJECT_DIR$/TestsFraBogen/TestsFraBogen.iml" />
     </modules>
