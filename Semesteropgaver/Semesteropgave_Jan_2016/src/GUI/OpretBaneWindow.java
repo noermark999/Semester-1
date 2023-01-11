@@ -1,7 +1,6 @@
 package GUI;
 
 import Application.Controller.Service;
-import Application.Model.Bane;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

@@ -1,8 +1,6 @@
 import Application.Controller.Service;
 import Application.Model.Bane;
 import Application.Model.Medlem;
-import Application.Model.Reservation;
-import Storage.Storage;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
