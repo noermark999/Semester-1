@@ -45,18 +45,19 @@ public class Medarbejder {
                 vagt.addMedarbejder(this);
             } else {
                 Vagt vagtTemp = null;
-                    for (Vagt vagt1 : vagter) {
-                        if (vagt.getTidFra().isBefore(vagt1.getTidTil()) && vagt.getTidTil().isAfter(vagt1.getTidFra())) {
-                            vagt.removeMedarbejder(this);
-                            throw new RuntimeException("Fejl da " + navn + " allerede har vagt " + vagt1.getNavn() + " indenfor dette tidsrum");
-                        } else {
-                            vagtTemp = vagt;
-                        }
+                for (Vagt vagt1 : vagter) {
+                    if (vagt.getTidFra().isBefore(vagt1.getTidTil()) && vagt.getTidTil().isAfter(vagt1.getTidFra())
+                            || (vagt.getTidFra().equals(vagt1.getTidFra()) && vagt.getTidTil().equals(vagt1.getTidTil()))) {
+                        vagt.removeMedarbejder(this);
+                        throw new RuntimeException("Fejl da " + navn + " allerede har vagt " + vagt1.getNavn() + " indenfor dette tidsrum");
+                    } else {
+                        vagtTemp = vagt;
                     }
+                }
                 vagter.add(vagtTemp);
                 vagtTemp.addMedarbejder(this);
-                }
             }
+        }
     }
 
     public void removeVagt(Vagt vagt) {
@@ -65,7 +66,6 @@ public class Medarbejder {
             vagt.removeMedarbejder(this);
         }
     }
-
 
 
     public void addFunktion(Funktion funktion) {

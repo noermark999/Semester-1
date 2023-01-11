@@ -104,22 +104,17 @@ public class Vagt {
     }
 
     public String status() {
-        boolean manglerMedarbejdere = false;
         for (Antal antal1 : antal) {
             Funktion funktion = antal1.getFunktion();
             if (antalMedarbejdereMedFunktion(funktion) < antal1.getAntal()) {
-                manglerMedarbejdere = true;
+                return "Manglende resourcer";
             }
         }
-        if (manglerMedarbejdere) {
-            return "Manglende resourcer";
-        } else {
-            return "Ressourcer tildelt";
-        }
+        return "Ressourcer tildelt";
     }
 
     @Override
     public String toString() {
-        return navn ;
+        return navn;
     }
 }

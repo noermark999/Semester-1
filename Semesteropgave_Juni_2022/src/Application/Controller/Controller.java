@@ -74,6 +74,8 @@ public class Controller {
 
         Vagt vagt1 = createVagt("Røgede ål til medarbejderne",LocalDateTime.of(2022,6,24,8,0),LocalDateTime.of(2022,6,24,12,30));
         Vagt vagt2 = createVagt("Anden Fest",LocalDateTime.of(2022,6,24,10,0),LocalDateTime.of(2022,6,24,14,30));
+        Vagt vagt3 = createVagt("Tredje Fest",LocalDateTime.of(2022,6,24,10,0),LocalDateTime.of(2022,6,24,14,30));
+
 
         vagt1.createAntal(2,funktion1);
         vagt1.createAntal(1,funktion2);
