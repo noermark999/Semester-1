@@ -39,6 +39,7 @@ public class Medarbejder {
     }
 
     public void addVagt(Vagt vagt) throws RuntimeException {
+
         if (!vagter.contains(vagt)) {
             if (vagter.size() == 0) {
                 vagter.add(vagt);
